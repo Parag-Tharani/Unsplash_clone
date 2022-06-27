@@ -4,12 +4,14 @@ import './App.css';
 function App() {
   const [items, setitem] = React.useState([]);
  var index =1
-  
-  for ( index; index < 2; index++) {
-    
-fetch(`https://api.unsplash.com/search/photos?page=${index}&query=office&client_id=DXYD_GyjDUwagXbKcj_4HvYGwkxDp8HKCkwXUJ12rT8`)
+function fetchdata(index) {
+  fetch(`https://api.unsplash.com/search/photos?page=${index}&query=office&client_id=DXYD_GyjDUwagXbKcj_4HvYGwkxDp8HKCkwXUJ12rT8`)
     .then((res) => res.json())
     .then((res) => setitem(res.results));
+}
+  for ( index; index < 2; index++) {
+    fetchdata(index)
+
     
   }
   
