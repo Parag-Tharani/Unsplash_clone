@@ -3,9 +3,17 @@ body {
 }
 .App {
     display: grid;
+    width: 95%;
+    align-items: center;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
+    gap: 48px;
 }
-.card {
+.card img{
     cursor: pointer;
+    width: 100%;
+    margin: 24px;
+    border-radius: 1px;
+}
+.image_box{
+    width: auto;
 }
