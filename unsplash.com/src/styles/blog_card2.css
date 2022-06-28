@@ -20,9 +20,12 @@ h2{
     background-color: white;
     border-bottom-left-radius: 1%;
     border-bottom-right-radius: 1%;
+    padding-left: 4%;
+    padding-bottom: 4%;
 }
 .card{
     width: 100%;
-    border: 0.1px solid gainsboro;
+    border: 1px solid gainsboro;
     border-radius: 1%;
+
 }

@@ -3,12 +3,13 @@ import "../styles/blog_home.css"
 import { Blogcard } from './Blogcard'
 import { Blogcard1 } from './Blogcard1'
 import { Blogcard2 } from './Blogcard2'
+import { BlogFooter } from './BlogFooter'
 
 export const BlogHome = () => {
   const data = [
     {
       id:1,
-      url: "https://unsplash.com/blog/content/images/size/w1000/2022/06/A_look_back_at_May_-Blog--1.jpeg",
+      url: "https://unsplash.com/blog/content/images/size/w600/2022/06/DeepMind--Blog-.jpg",
       type: "Announcement",
       title:"Unsplash ✕ DeepMind",
       by: "Natalie Brennan - ",
@@ -24,59 +25,59 @@ export const BlogHome = () => {
     },
     {
       id:3,
-      url: "https://unsplash.com/blog/content/images/size/w1000/2022/06/A_look_back_at_May_-Blog--1.jpeg",
-      type: "Announcement",
-      title:"A look back on May",
-      by: "Annie spratt - ",
-      date: "June 7, 2022"
+      url: "https://unsplash.com/blog/content/images/size/w600/2022/06/Amy-Shamblen--Twitter-.jpg",
+      type: "Community",
+      title:"Meet Amy Shamblen",
+      by: "Alex -Begin - ",
+      date: "June 9, 2022"
     },
     {
       id:4,
-      url: "https://unsplash.com/blog/content/images/size/w1000/2022/06/A_look_back_at_May_-Blog--1.jpeg",
+      url: "https://unsplash.com/blog/content/images/size/w600/2022/06/pride-Twitter-.jpg",
       type: "Announcement",
-      title:"A look back on May",
-      by: "Annie spratt - ",
-      date: "June 7, 2022"
+      title:"Pride in Open Photography",
+      by: "Alex Begin - ",
+      date: "June 1, 2022"
     },
     {
       id:5,
-      url: "https://unsplash.com/blog/content/images/size/w1000/2022/06/A_look_back_at_May_-Blog--1.jpeg",
+      url: "https://unsplash.com/blog/content/images/size/w600/2022/05/The-Importance-of-Editing--Blog--3.jpg",
       type: "Announcement",
-      title:"A look back on May",
-      by: "Annie spratt - ",
-      date: "June 7, 2022"
+      title:"How editing can Transform an Image",
+      by: "Alex Begin - ",
+      date: "May 24, 2022"
     },
     {
       id:6,
-      url: "https://unsplash.com/blog/content/images/size/w1000/2022/06/A_look_back_at_May_-Blog--1.jpeg",
+      url: "https://unsplash.com/blog/content/images/size/w600/2022/04/Bruno--Blog--1.jpg",
       type: "Announcement",
-      title:"A look back on May",
-      by: "Annie spratt - ",
-      date: "June 7, 2022"
+      title:"Meet the Unsplash Team : Bruno Aguirre ",
+      by: "Natalie Brennan - ",
+      date: "May 18, 2022"
     },
     {
       id:7,
-      url: "https://unsplash.com/blog/content/images/size/w1000/2022/06/A_look_back_at_May_-Blog--1.jpeg",
+      url: "https://unsplash.com/blog/content/images/size/w600/2022/05/Color-of-Water-Winners--Twitter--2.gif",
       type: "Announcement",
-      title:"A look back on May",
-      by: "Annie spratt - ",
-      date: "June 7, 2022"
+      title:"Top 15: Color of Water",
+      by: "Natalie Brennan - ",
+      date: "May 12, 2022"
     },
     {
       id:8,
-      url: "https://unsplash.com/blog/content/images/size/w1000/2022/06/A_look_back_at_May_-Blog--1.jpeg",
-      type: "Announcement",
-      title:"A look back on May",
-      by: "Annie spratt - ",
-      date: "June 7, 2022"
+      url: "https://unsplash.com/blog/content/images/size/w600/2022/05/Frankie_Cordoba_-Twitter--3.jpeg",
+      type: "Community",
+      title:"Meet Frankie Cordoba",
+      by: "Natalie Brennan - ",
+      date: "MAy 11, 2022"
     },
     {
       id:9,
-      url: "https://unsplash.com/blog/content/images/size/w1000/2022/06/A_look_back_at_May_-Blog--1.jpeg",
+      url: "https://unsplash.com/blog/content/images/size/w600/2022/05/April-Round-up--Blog-.jpg",
       type: "Announcement",
-      title:"A look back on May",
+      title:"A look back on April",
       by: "Annie spratt - ",
-      date: "June 7, 2022"
+      date: "MAy 6, 2022"
     }
   ]
 
@@ -108,6 +109,12 @@ export const BlogHome = () => {
                 </div>
               ))
             }
+        </div>
+        <div style={{marginTop: "10rem",textAlign: "center"}}>
+          <button className='loadButton'>Load More Posts</button>
+        </div>
+        <div>
+          <BlogFooter />
         </div>
     </div>
   )

@@ -1,8 +1,12 @@
 import "./App.css"
+import { BlogFooter } from "./components/BlogFooter";
+import { BlogNavbar } from "./components/BlogNavbar";
 
 function App() {
   return (
-    <div className="App">
+    <div >
+      <BlogNavbar />
+      {/* <BlogFooter /> */}
     </div>
   );
 }
