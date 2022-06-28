@@ -1,11 +1,10 @@
 import './App.css';
-import { SmoothScroll } from "scroller-motion"
-import { Navbar } from './components/Navbar';
+import { Navbar } from "../src/components/Navbar/Navbar"
 
 function App() {
   return (
     <div className="App">
-     <Navbar />
+        <Navbar />
     </div>
   );
 }

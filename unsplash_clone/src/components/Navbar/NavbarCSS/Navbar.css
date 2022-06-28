@@ -1,0 +1,22 @@
+.navbar{
+    position: sticky;
+    background-color: white;
+}
+
+
+.onHover{
+    color:#757575;
+    text-decoration: none;
+    white-space: nowrap;
+    font-size: 17px;
+    padding: 0px 10px 0px 10px;
+}
+.onHover:hover{
+    color: black;
+    cursor: pointer;
+    transition: color 0.4s;
+}
+
+.scroll::-webkit-scrollbar{
+    display: none;
+}
