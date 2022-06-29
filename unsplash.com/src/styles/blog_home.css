@@ -33,6 +33,7 @@
     grid-template-columns: auto auto auto;
     grid-gap: 2%;
     margin-left: 7%;
+    padding-bottom: 5rem;
 }
 .loadButton{
     padding-left: 1rem;
