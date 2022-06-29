@@ -1,8 +1,12 @@
 import React from 'react'
 import '../styles/blog_navbar.css'
+import { BlogAnnouncement } from './BlogAnnouncement';
 import { BlogHome } from './BlogHome'
 
 export const BlogNavbar = () => {
+    const [toggle,setToggle] = React.useState(true);
+
+
   return (
     <div>
         <div className='blog-nav'>
@@ -14,10 +18,10 @@ export const BlogNavbar = () => {
             </a>
         </div>
         <div className='links'>
-            <a href="">
+            <a href="javascript:;" onClick={()=>setToggle(true)}>
                 Home
             </a>
-            <a href="">
+            <a href="javascript:;" onClick={()=>setToggle(false)}>
                 Announcements
             </a>
             <a href="">
@@ -39,7 +43,18 @@ export const BlogNavbar = () => {
         </a>
         </div>
         </div>
-        <BlogHome />
+        {toggle ? (
+            <div>
+                <BlogHome />
+            </div>
+        ):(
+            <div>
+                <BlogAnnouncement />
+            </div>
+        )
+            
+        }
+
     </div>
   )
 }

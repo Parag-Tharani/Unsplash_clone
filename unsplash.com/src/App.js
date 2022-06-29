@@ -1,12 +1,12 @@
 import "./App.css"
-import { BlogFooter } from "./components/BlogFooter";
+import { BlogAnnouncement } from "./components/BlogAnnouncement";
 import { BlogNavbar } from "./components/BlogNavbar";
 
 function App() {
   return (
     <div >
       <BlogNavbar />
-      {/* <BlogFooter /> */}
+      {/* <BlogAnnouncement /> */}
     </div>
   );
 }

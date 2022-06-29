@@ -1,12 +1,9 @@
 import React from 'react'
-import "../styles/blog_home.css"
+import "../styles/blog_ann.css"
 import { Blogcard } from './Blogcard'
-import { Blogcard1 } from './Blogcard1'
-import { Blogcard2 } from './Blogcard2'
 import { BlogFooter } from './BlogFooter'
-import {v4 as uuid} from 'uuid'
 
-export const BlogHome = () => {
+export const BlogAnnouncement = () => {
   var data = [
     {
       id:1,
@@ -105,69 +102,27 @@ export const BlogHome = () => {
       date: "May 2, 2022"
     }
   ]
-  const [data2, setdata] = React.useState(data);
-  
-  const more = () => {
-    var data1 = [
-      {
-        id:uuid(),
-        url: "https://unsplash.com/blog/content/images/size/w600/2022/06/DeepMind--Blog-.jpg",
-        type: "Announcement",
-        title:"Unsplash ✕ DeepMind",
-        by: "Natalie Brennan - ",
-        date: "June 20, 2022"
-      },
-      {
-        id:uuid(),
-        url: "https://unsplash.com/blog/content/images/size/w600/2022/05/Tim--Blog--2.jpg",
-        type: "Announcement",
-        title:"Meet the Unsplash Team",
-        by: "Natalie Brennan - ",
-        date: "June 7, 2022"
-      },
-      {
-        id:uuid(),
-        url: "https://unsplash.com/blog/content/images/size/w600/2022/06/Amy-Shamblen--Twitter-.jpg",
-        type: "Community",
-        title:"Meet Amy Shamblen",
-        by: "Alex -Begin - ",
-        date: "June 9, 2022"
-      }
-    ]
-    data = data.concat(data1);
-    setdata(data);
-    console.log(data);
-  }
+
 
   return (
     <div>
         <div className='head'>
-            Unsplash Blog
+          Announcements
         </div>
         <div className='subHeading'>
-            Stories from the community powering the internet’s visuals
-        </div>
-        <div className='feature'>
-            Featured
-        </div>
-        <div className='mainCard'>
-            <Blogcard1 />
-            <Blogcard2 />
-        </div>
-        <div className='feature2'>
-            Latest from the team
+          News and announcements from the Unsplash team.
         </div>
         <div className='smallCard'>
             {
-              data2.map((item)=>(
+              data.map((item)=>(
                 <div key={item.id}>
-                  <Blogcard data={item}/>
+                  <Blogcard data={item} />
                 </div>
               ))
             }
         </div>
         <div style={{marginTop: "10rem",textAlign: "center"}}>
-          <button className='loadButton' onClick={more}>Load More Posts</button>
+          <button className='loadButton'>Load More Posts</button>
         </div>
         <div>
           <BlogFooter />
