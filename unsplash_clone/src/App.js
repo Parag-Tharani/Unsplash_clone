@@ -68,33 +68,37 @@ useEffect(() => {
             <input
               type="text"
               placeholder="Search free high-resolution photos"
-              onClick={()=> {setishovering(true);}}
+              onClick={() => {
+                setishovering(true);
+              }}
             />
           </div>
-          <i className= {`    ${ishovering? "" : "hidden"}` } >
-            <p>Trending Searches</p>
-            <div className="trending_searches">
-              <p>Wallpapers</p>
-              <p>travel</p>
-              <p>home</p>
-              <p>stagelights</p>
-              <p>yoga</p>
-            </div>
-            <p>Trending Topics</p>
-            <div className="trending_topics">
-              <p>Wallpapers</p>
-              <p>Arts & Culture</p>
-              <p>3D Renders</p>
-              <p>Architecture</p>
-              <p>Textures & Patterns</p>
-            </div>
-            <p>Trending Collections</p>
-            <div className="trending_collections">
-              <p>Light Tones</p>
-              <p>Medium frames in interior</p>
-              <p>Springs</p>
-              <p>MockUps</p>
-              <p>Flat Lay Lifestyle</p>
+          <i className={`    ${ishovering ? "" : "hidden"}`}>
+            <div className="mousehover">
+              <p>Trending Searches</p>
+              <div className="trending_searches">
+                <p>Wallpapers</p>
+                <p>travel</p>
+                <p>home</p>
+                <p>stagelights</p>
+                <p>yoga</p>
+              </div>
+              <p>Trending Topics</p>
+              <div className="trending_topics">
+                <p>Wallpapers</p>
+                <p>Arts & Culture</p>
+                <p>3D Renders</p>
+                <p>Architecture</p>
+                <p>Textures & Patterns</p>
+              </div>
+              <p>Trending Collections</p>
+              <div className="trending_collections">
+                <p>Light Tones</p>
+                <p>Medium frames in interior</p>
+                <p>Springs</p>
+                <p>MockUps</p>
+                <p>Flat Lay Lifestyle</p>
+              </div>
             </div>
           </i>
         </div>
