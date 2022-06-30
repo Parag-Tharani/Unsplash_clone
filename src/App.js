@@ -1,7 +1,7 @@
 import './App.css';
 import {Routes, Route} from "react-router-dom";
 import { Inputform } from './Components/Advertise/Inputform';
-import {Advertise} from "./Components/Advertise/Advertise";
+import {Advertise} from "./Pages/Advertise";
 
 function App() {
   return (
