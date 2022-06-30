@@ -23,11 +23,11 @@ export const BlogAnnouncement = () => {
     },
     {
       id:3,
-      url: "https://unsplash.com/blog/content/images/size/w600/2022/06/Amy-Shamblen--Twitter-.jpg",
-      type: "Community",
-      title:"Meet Amy Shamblen",
-      by: "Alex -Begin - ",
-      date: "June 9, 2022"
+      url: "https://unsplash.com/blog/content/images/size/w600/2022/05/Digital_Nomad_-Blog-.jpeg",
+      type: "Announcement",
+      title:"Digital Nomad",
+      by: "Natalie Brennan - ",
+      date: "May 1, 2022"
     },
     {
       id:4,
@@ -63,11 +63,11 @@ export const BlogAnnouncement = () => {
     },
     {
       id:8,
-      url: "https://unsplash.com/blog/content/images/size/w600/2022/05/Frankie_Cordoba_-Twitter--3.jpeg",
-      type: "Community",
+      url: "https://unsplash.com/blog/content/images/size/w600/2022/04/Localization-blog-8.jpg",
+      type: "Announcement",
       title:"Meet Frankie Cordoba",
       by: "Natalie Brennan - ",
-      date: "May 11, 2022"
+      date: "April 27, 2022"
     },
     {
       id:9,
@@ -79,11 +79,11 @@ export const BlogAnnouncement = () => {
     },
     {
       id:10,
-      url: "https://unsplash.com/blog/content/images/size/w600/2022/05/Motherhood--Blog--2.jpg",
-      type: "Community",
-      title:"Motherhood & Photography",
-      by: "Alex Begin - ",
-      date: "May 5, 2022"
+      url: "https://unsplash.com/blog/content/images/size/w600/2022/04/March-Round-up--Blog--1.jpg",
+      type: "Announcement",
+      title:"A look back on March",
+      by: "Natalie Brennan - ",
+      date: "Apr 11, 2022"
     },
     {
       id:11,
