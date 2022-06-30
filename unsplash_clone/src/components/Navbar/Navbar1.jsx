@@ -7,6 +7,17 @@ import { Link } from "react-router-dom"
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import { useDispatch, useSelector } from "react-redux";
+import Popover from '@mui/material/Popover';
+import { useNavigate } from "react-router-dom";
+import CorporateFareIcon from '@mui/icons-material/CorporateFare';
+import CategoryIcon from '@mui/icons-material/Category';
+import PeopleIcon from '@mui/icons-material/People';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import { isLogin } from "../Redux/action";
 
 export const Navbar1 = () => {
 
@@ -18,7 +29,7 @@ export const Navbar1 = () => {
         '&:hover': {
           backgroundColor: alpha(theme.palette.common.black, 0.05),
         },
-        marginRight: theme.spacing(2),
+        marginRight: theme.spacing(3),
         marginLeft: theme.spacing(1),
         width: '100%',
         [theme.breakpoints.up('sm')]: {
@@ -55,13 +66,78 @@ export const Navbar1 = () => {
         display: 'none',
       });
 
+
+
+
+
+      const { logedIn } = useSelector((state) => state)
+      const [payload, setPayload] = React.useState({})
+      const navigate = useNavigate()
+      const dispatch = useDispatch()
+
+      React.useEffect(() => {
+        fetch(`http://localhost:8080/usersData`)
+        .then((res) => res.json())
+        .then((res) => res.forEach((items) => {
+          if(items.token === JSON.parse(localStorage.getItem("AuthToken"))){
+            setPayload(items)
+          }
+        }))
+        .catch((err) => console.log(err))
+        // eslint-disable-next-line
+      },[logedIn])
+      
+      
+      const handleLogout = () => {
+        localStorage.setItem("AuthToken","")
+        dispatch(isLogin(false))
+      }
+
+
       const HandleSubmit = () => {
         console.log(document.getElementById("contained-button-file").files)
+        // const url = "https://media.istockphoto.com/photos/life-is-a-lot-brighter-with-better-vision-picture-id1305313838"
+
+        // fetch(`https://http://unsplash.com//napi/search/by_image`,{
+        //   method:"POST",
+        //   body: url,
+        //   headers:{
+        //     "Content_Type": "application/json"
+        //   }
+        // })
       }
+
+      const [anchorEl, setAnchorEl] = React.useState(null);
+      const [anchorEl2, setAnchorEl2] = React.useState(null);
+
+
+      const open = Boolean(anchorEl);
+      const id = open ? 'simple-popover' : undefined;
+
+      const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+      };
+
+      const handleClose = () => {
+        setAnchorEl(null);
+      };
+
+
+
+      const open2 = Boolean(anchorEl2);
+      const id2 = open2 ? 'simple-popover' : undefined;
+
+      const handleClick2 = (event) => {
+        setAnchorEl2(event.currentTarget);
+      };
+
+      const handleClose2 = () => {
+        setAnchorEl2(null);
+      };
       
 
     return (
-        <Box sx={{display:"flex", padding:1, alignItems:"center", justifyContent:"center"}}>
+        <Box sx={{display:"flex", padding:0.8, alignItems:"center", justifyContent:"center"}}>
 
             <img alt="Logo" style={{position:"relative",borderRadius:"50%"}} width={"55px"} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf31fI-8KqbQk8HKfgCdJTZ_ZpMe1bdtKArA&usqp=CAU" />
 
@@ -78,27 +154,113 @@ export const Navbar1 = () => {
           <Link to='#' className="onHover">Advertise</Link>
           <Link to='#' className="onHover">Blog</Link>
           <Box sx={{color:"#7e7b7bd5", borderLeft:1, marginLeft:"10px", marginRight:"10px", borderColor:"#7e7b7bd5", height:30}}></Box>
-          <Link to="#" className="onHover">Login</Link>
+          {logedIn?null:
+          <>
+          <Link to="/login" className="onHover">Login</Link>
           <p style={{color:"#757575"}}>/</p>
-          <Link to="#" className="onHover">Signup</Link>
+          <Link to="/signup" className="onHover">Signup</Link>
+          </>
+          }
           
+        
+        
         <label htmlFor="contained-button-file">
-        <Input onInput={HandleSubmit} accept="image/*" id="contained-button-file" multiple type="file" />
-        <Button className="onHover" variant="contained" component="span" size="small" color="inherit" sx={{color:"#757575",padding:1, border:1, borderColor:"#757575", backgroundColor:"white", fontSize:12, boxShadow:"none", marginLeft:"10px", marginRight:"10px"}}>
+        <Input disabled={logedIn?false:true} onChange={HandleSubmit} accept="image/*" id="contained-button-file" multiple type="file" />
+        <Button onClick={logedIn?null:() => navigate("/signup")} className="onHover" variant="contained" component="span" size="small" color="inherit" sx={{color:"#757575",padding:1, border:1, borderColor:"#757575", backgroundColor:"white", fontSize:12, boxShadow:"none", marginLeft:"20px", marginRight:"10px"}}>
           Submit Photo
         </Button>
         </label>
 
+
+        {logedIn?
+        <Box sx={{display:"flex", alignItems:"center"}}>
+        <NotificationsIcon fontSize="medium" className="onHover" sx={{marginLeft:1}}/>
+        <Button onClick={handleClick2} aria-describedby={id2}>
+        <img className="onHover" alt="ProfilePic" style={{width:"50px", borderRadius:"50px"}} src={ payload.profilepic } />
+        </Button>
+        <Popover
+              className={id2}
+              open={open2}
+              anchorEl={anchorEl2}
+              onClose={handleClose2}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'right',
+              }}>
+                <Box sx={{padding:"4px 20px 10px 4px"}}>
+                  <p><Link className="onHover" to="#">View Profile</Link></p>
+                  <p><Link className="onHover" to="#">Stats</Link></p>
+                  <p><Link className="onHover" to="#">Account Settings</Link></p>
+                </Box>
+                  <hr style={{marginTop:-3}} />
+                  <Button onClick={handleLogout} sx={{width:"100%", color:"#757575", marginTop:-1}}>Logout { payload.username }</Button>
+              </Popover>
+        </Box>
+        :null}
+
+
         <Toolbar>
+          <Box>
           <IconButton
             size="large"
             edge="start"
             color="inherit"
             aria-label="open drawer"
-            sx={{ mr: 0 }}
+            onClick={handleClick}
+            aria-describedby={id}
           >
             <MenuIcon />
-          </IconButton>
+            </IconButton>
+            <Popover
+              className={id}
+              open={open}
+              anchorEl={anchorEl}
+              onClose={handleClose}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+              }}>
+                <Box sx={{display:"flex", padding:"20px 20px 20px 50px", width:"20%"}}>
+                  <Box sx={{paddingleft:1,paddingRight:3}}>
+                    <Box sx={{display:"flex", alignItems:"center", marginBottom:-2}}><CorporateFareIcon fontSize={"small"}/><h4 style={{marginLeft:6}}>Company</h4></Box>
+                    <p className="onHover">About</p>
+                    <p className="onHover">History</p>
+                    <p className="onHover">Join the team</p>
+                    <p className="onHover">Press</p>
+                    <p className="onHover">Contact Us</p>
+                    <p className="onHover">Help Center</p>
+                  </Box>
+                  <Box sx={{paddingLeft:8,paddingRight:8}}>
+                    <Box sx={{display:"flex", alignItems:"center", marginBottom:-2}}><CategoryIcon fontSize={"small"}/><h4 style={{marginLeft:6}}>Product</h4></Box>
+                    <p className="onHover">Developers/Api</p>
+                    <p className="onHover">Unsplash Dataset</p>
+                    <p className="onHover">Unsplash for iOS</p>
+                    <p className="onHover">Apps and Plugins</p>
+                  </Box>
+                  <Box sx={{paddingleft:1}}>
+                    <Box sx={{display:"flex", alignItems:"center", marginBottom:-2}}><PeopleIcon fontSize={"small"}/><h4 style={{marginLeft:6}}>Community</h4></Box>
+                    <p className="onHover">Become a Contributor</p>
+                    <p className="onHover">Topcis</p>
+                    <p className="onHover">Collections</p>
+                    <p className="onHover">Trends</p>
+                    <p className="onHover">Unsplash Awards</p>
+                    <p className="onHover">Stats</p>
+                    <Box sx={{display:"flex"}}>
+                      <a href="www.google.com" className="onHover"><TwitterIcon fontSize="small"/></a>
+                      <a href="www.google.com" className="onHover"><FacebookIcon fontSize="small"/></a>
+                      <a href="www.google.com" className="onHover"><InstagramIcon fontSize="small"/></a>
+                      </Box>
+                  </Box>
+                </Box>
+                <hr />
+                <Box sx={{display:"flex", padding:"0px 10px 10px 30px"}}>
+                  <p className="onHover">License</p>
+                  <p className="onHover">Privacy Policy</p>
+                  <p className="onHover">Terms</p>
+                  <p className="onHover">Security</p>
+                </Box>
+          </Popover>
+          </Box>
           </Toolbar>
 
         </Box>
