@@ -1,10 +1,10 @@
 import "./App.css"
-import {BlogNavbar} from "./components/BlogNavbar"
+import { Blog } from "./Pages/Blog";
 
 function App() {
   return (
     <div >
-      <BlogNavbar />
+      <Blog />
     </div>
   );
 }
