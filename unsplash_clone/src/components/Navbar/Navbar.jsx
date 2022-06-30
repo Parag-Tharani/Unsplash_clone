@@ -21,9 +21,11 @@ export const Navbar = () => {
 
 
      return (
-        <Box className="navbar">
+      <>
+        <Box className="navbar23">
          <Navbar1 />
          <Navbar2 />
         </Box>
+      </>
      )
 }
