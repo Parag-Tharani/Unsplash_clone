@@ -18,32 +18,36 @@ function App() {
   const [index, setindex] = React.useState([1]);
   // var index=1
 
-  useEffect(() => {
-    FetchImages();
-  }, []);
 
-  const FetchImages = ( ) => {
+
+  const FetchImages = ( count =10 ) => {
     const apiRoot = "https://api.unsplash.com";
     const accessKey = process.env.REACT_APP_ACCESSKEY;
 
   
     fetch(
-      `https://api.unsplash.com/search/photos?page=${index }&per_page=30&query=office&client_id=DXYD_GyjDUwagXbKcj_4HvYGwkxDp8HKCkwXUJ12rT8`
+      `https://api.unsplash.com/search/photos?page=${index}&per_page=30&query=office&client_id=DXYD_GyjDUwagXbKcj_4HvYGwkxDp8HKCkwXUJ12rT8&count=${count}`
     )
       .then((res) => res.json())
       .then((res) => setImage(res.results));
     fetch(
-      `https://api.unsplash.com/search/photos?page=${index +1}&per_page=30&query=office&client_id=DXYD_GyjDUwagXbKcj_4HvYGwkxDp8HKCkwXUJ12rT8`
+      `https://api.unsplash.com/search/photos?page=${
+        index + 1
+      }&per_page=30&query=office&client_id=DXYD_GyjDUwagXbKcj_4HvYGwkxDp8HKCkwXUJ12rT8&count=${count}`
     )
       .then((res) => res.json())
       .then((res) => setimage2(res.results));
     fetch(
-      `https://api.unsplash.com/search/photos?page=${index +2}&per_page=30&query=office&client_id=DXYD_GyjDUwagXbKcj_4HvYGwkxDp8HKCkwXUJ12rT8`
+      `https://api.unsplash.com/search/photos?page=${index +2}&per_page=30&query=office&client_id=DXYD_GyjDUwagXbKcj_4HvYGwkxDp8HKCkwXUJ12rT8&count=${count}`
     )
       .then((res) => res.json())
       .then((res) => setimage3(res.results));
    
   }; 
+
+    useEffect(() => {
+      FetchImages();
+    }, [FetchImages]);
   const display_search_demo = () => {
     return <>
 
