@@ -18,7 +18,9 @@ function App() {
   const [index, setindex] = React.useState([1]);
   // var index=1
 
-
+useEffect(() => {
+  FetchImages();
+}, []);
 
   const FetchImages = ( count =10 ) => {
     const apiRoot = "https://api.unsplash.com";
@@ -45,14 +47,14 @@ function App() {
    
   }; 
 
-    useEffect(() => {
-      FetchImages();
-    }, [FetchImages]);
+    
+  const [ishovering, setishovering] = useState(true)
   const display_search_demo = () => {
     return <>
 
     </>
   }
+  
 
   return (
     <>
@@ -66,10 +68,10 @@ function App() {
             <input
               type="text"
               placeholder="Search free high-resolution photos"
-              onClick={display_search_demo}
+              onClick={()=> {setishovering(true);}}
             />
           </div>
-          <div className="mousehover">
+          <i className= {`    ${ishovering? "" : "hidden"}` } >
             <p>Trending Searches</p>
             <div className="trending_searches">
               <p>Wallpapers</p>
@@ -94,7 +96,7 @@ function App() {
               <p>MockUps</p>
               <p>Flat Lay Lifestyle</p>
             </div>
-          </div>
+          </i>
         </div>
         <div className="banner">
           <img src={banner} alt="" />
