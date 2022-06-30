@@ -1,5 +1,6 @@
 import React from "react";
 import Box from "@mui/material/Box";
+import {Link} from "react-router-dom";
 
 export const HeadersSection = () => {
   return (
@@ -46,7 +47,7 @@ export const HeadersSection = () => {
             The world’s most popular creative platform.
           </Box>
           <Box
-            component="a"
+            component="div"
             style={{
               marginTop: "16px",
               marginBottom: "8px",
@@ -56,9 +57,10 @@ export const HeadersSection = () => {
               borderRadius: "5px",
               fontSize: "16px",
               fontWeight: "600",
-            }}
-          >
-            Get in touch with us
+            }}>
+            <Link to="/Inputform" style={{ color: "white" }}>
+              Get in touch with us
+            </Link>  
           </Box>
         </Box>
         <Box>

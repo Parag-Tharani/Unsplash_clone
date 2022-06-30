@@ -1,9 +1,8 @@
 import React from "react";
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
 import Box from "@mui/material/Box";
 import { Cards } from "./Card";
 import Grid from "@mui/material/Grid"
+import "./ImageCarousel.css"
 
 export const ImageCarousel = () => {
   const [images, setImages] = React.useState([]);
@@ -20,51 +19,37 @@ export const ImageCarousel = () => {
     getImages();
   }, []);
 
+  
+
   return (
     <>
-      <ImageList
-        sx={{
-          display: "flex",
-          height: "200px",
-          padding: "25px",
-          overflow: "hidden",
-        }}
-      >
-        {images.map((item) => {
-          return (
-            <ImageListItem
-              key={item.id}
-              sx={{
-                height: "100px",
-              }}
-            >
-              <img alt="brand icons" src={item.ImgURL}></img>
-            </ImageListItem>
-          );
-        })}
-      </ImageList>
+    <div className="Slider">
+     {images.map((item) => {
+         return(
+             
+             <div className="slide-track">
+                 <div className="slide">
+                        <img alt="carousel" src={item.ImgURL} />
+                 </div>
+             </div>
+             
+             )
+            })}
+    </div>
 
-      <ImageList
-        sx={{
-          display: "flex",
-          height: "200px",
-          padding: "25px",
-          overflow: "hidden",
-        }}
-      >
-        {images.map((item) => {
-          return (
-            <ImageListItem
-              key={item.id}
-              sx={{
-                height: "100px",
-              }}
-            >
-              <img alt="brand icons" src={item.ImgURL}></img>
-            </ImageListItem>
-          );
-        })}
-      </ImageList>
+    <div className="Slider">
+     {images.map((item) => {
+         return(
+             
+             <div className="slide-track">
+                 <div className="slide">
+                    <img alt="carousel" src={item.ImgURL} />
+                 </div>
+             </div>
+             
+             )
+            })}
+    </div>
 
       <Box
         sx={{
@@ -78,7 +63,7 @@ export const ImageCarousel = () => {
           marginBottom: "70px",
         }}
       >
-        <Box component="h1" sx={{ fontSize: "48px", lineHeight: "0.0" }}>
+        <Box component="h1" sx={{ fontSize: "48px", lineHeight: "0.2" }}>
           Direct Advertising
         </Box>
         <Box
@@ -104,7 +89,7 @@ export const ImageCarousel = () => {
           marginTop: "50px",
         }}
       ></Box>
-      <Grid container spacing={2}
+      <Grid container spacing={6}
       sx={{
           alignItems: "center",
           justifyContent: "center"
