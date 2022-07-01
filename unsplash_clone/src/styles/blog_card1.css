@@ -26,3 +26,11 @@ h2{
     border: 0.1px solid gainsboro;
     border-radius: 1%;
 }
+.card:hover{
+    box-shadow: 0 0 11px rgba(33, 33, 33, 0.484);
+    transform: scale(1.05, 1.05);
+    transition: transform 0.5s ease-in-out;  
+}
+.card:hover::after{
+    opacity: 1;
+}
