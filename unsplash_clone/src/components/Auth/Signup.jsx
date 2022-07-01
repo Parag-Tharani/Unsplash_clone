@@ -145,7 +145,7 @@ export const SignUp = () => {
 
 
     return (
-        <Box sx={{display:"flex"}}>
+        <Box id="signupContainer" sx={{display:"flex"}}>
 
             <Box className="imgPart" sx={{display:"flex", flexDirection:"column", color:"white", padding: "5%"}}>
                 <img alt="Logo" style={{boxSizing:"border-box",marginBottom:"10%", width:40}} src="https://unsplash.com/assets/core/logo-white-8962708214629a3e8f9fbf5b87b70c3ace41c4175cbcc267f7fbb8449ac45bdd.svg" />
@@ -155,7 +155,7 @@ export const SignUp = () => {
 
 
 
-            <Box sx={{boxSizing:"border-box", display:"flex", width:"60%", height:"100vh", padding:"400px 10% 10% 10%", overflowY:"scroll", flexDirection:"column", alignItems:"center", justifyContent:"center"}}>
+            <Box className="formPart" sx={{boxSizing:"border-box", display:"flex", height:"100vh", padding:"400px 10% 10% 10%", overflowY:"scroll", flexDirection:"column", alignItems:"center", justifyContent:"center"}}>
 
             <h1 style={{fontSize:48}}>Join Unsplash</h1>
             <p style={{marginTop:-10}}>Already have an Account? <Link className="onHover" to="/login" style={{marginLeft:-8, textDecoration:"underline"}}>Login</Link> </p>

@@ -22,7 +22,10 @@ import { isLogin } from "../Redux/action";
 export const Navbar1 = () => {
 
     const Search = styled('div')(({ theme }) => ({
-        position: 'relative',
+        position: 'sticky',
+        top:2,
+        left:65,
+        right:250,
         display:"flex",
         borderRadius: theme.shape.borderRadius,
         backgroundColor: alpha(theme.palette.common.black, 0.15),
@@ -31,10 +34,10 @@ export const Navbar1 = () => {
         },
         marginRight: theme.spacing(3),
         marginLeft: theme.spacing(1),
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
+        width:'auto',
+        [theme.breakpoints.up('xs')]: {
           marginLeft: theme.spacing(3),
-          width: 'auto',
+          minWidth: '130px',
         },
       }));
       
@@ -139,7 +142,7 @@ export const Navbar1 = () => {
     return (
         <Box sx={{display:"flex", padding:0.8, alignItems:"center", justifyContent:"center"}}>
 
-            <img alt="Logo" style={{position:"relative",borderRadius:"50%"}} width={"55px"} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf31fI-8KqbQk8HKfgCdJTZ_ZpMe1bdtKArA&usqp=CAU" />
+            <img alt="Logo" style={{position:"sticky", left:2,borderRadius:"100%"}} width={"55px"} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf31fI-8KqbQk8HKfgCdJTZ_ZpMe1bdtKArA&usqp=CAU" />
 
             <Search>
             <SearchIconWrapper>
@@ -151,8 +154,8 @@ export const Navbar1 = () => {
               <ImageSearchIcon className="onHover" sx={{position:"relative", display:"flex", alignItems:"center", padding:1}}/>
           </Search>
 
-          <Link to='#' className="onHover">Advertise</Link>
-          <Link to='#' className="onHover">Blog</Link>
+          <Link to='#' className="onHover responsiveness">Advertise</Link>
+          <Link to='#' className="onHover responsiveness">Blog</Link>
           <Box sx={{color:"#7e7b7bd5", borderLeft:1, marginLeft:"10px", marginRight:"10px", borderColor:"#7e7b7bd5", height:30}}></Box>
           {logedIn?null:
           <>

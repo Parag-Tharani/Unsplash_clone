@@ -27,3 +27,11 @@ body::-webkit-scrollbar{
 .scroll::-webkit-scrollbar{
     display: none;
 }
+
+
+@media all and (max-width:800px){
+    .responsiveness{
+        width: 0px;
+        font-size: 0px;
+    }
+}
