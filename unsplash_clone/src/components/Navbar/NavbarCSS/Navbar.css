@@ -1,0 +1,37 @@
+body::-webkit-scrollbar{
+    display: none;
+}
+
+.navbar23{
+    position: sticky;
+    top:0;
+    left:0;
+    right: 0;
+    background-color: white;
+}
+
+
+.onHover{
+    color:#757575;
+    text-decoration: none;
+    white-space: nowrap;
+    font-size: 15.5px;
+    padding: 0px 10px 0px 10px;
+}
+.onHover:hover{
+    color: black;
+    cursor: pointer;
+    transition: color 0.4s;
+}
+
+.scroll::-webkit-scrollbar{
+    display: none;
+}
+
+
+@media all and (max-width:800px){
+    .responsiveness{
+        width: 0px;
+        font-size: 0px;
+    }
+}
