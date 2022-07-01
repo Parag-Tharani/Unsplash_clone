@@ -224,8 +224,8 @@ export const Navbar1 = () => {
                 vertical: 'bottom',
                 horizontal: 'left',
               }}>
-                <Box sx={{display:"flex", padding:"20px 20px 20px 50px", width:"20%"}}>
-                  <Box sx={{paddingleft:1,paddingRight:3}}>
+                <Box sx={{display:"flex", padding:"20px 30px 20px 40px", width:"20%"}}>
+                  <Box sx={{paddingRight:3}}>
                     <Box sx={{display:"flex", alignItems:"center", marginBottom:-2}}><CorporateFareIcon fontSize={"small"}/><h4 style={{marginLeft:6}}>Company</h4></Box>
                     <p className="onHover">About</p>
                     <p className="onHover">History</p>
@@ -234,14 +234,14 @@ export const Navbar1 = () => {
                     <p className="onHover">Contact Us</p>
                     <p className="onHover">Help Center</p>
                   </Box>
-                  <Box sx={{paddingLeft:8,paddingRight:8}}>
+                  <Box sx={{paddingLeft:"10%",paddingRight:"10%"}}>
                     <Box sx={{display:"flex", alignItems:"center", marginBottom:-2}}><CategoryIcon fontSize={"small"}/><h4 style={{marginLeft:6}}>Product</h4></Box>
                     <p className="onHover">Developers/Api</p>
                     <p className="onHover">Unsplash Dataset</p>
                     <p className="onHover">Unsplash for iOS</p>
                     <p className="onHover">Apps and Plugins</p>
                   </Box>
-                  <Box sx={{paddingleft:1}}>
+                  <Box sx={{paddingLeft:3, paddingRight:1}}>
                     <Box sx={{display:"flex", alignItems:"center", marginBottom:-2}}><PeopleIcon fontSize={"small"}/><h4 style={{marginLeft:6}}>Community</h4></Box>
                     <p className="onHover">Become a Contributor</p>
                     <p className="onHover">Topcis</p>
