@@ -5,6 +5,7 @@ import heart from "./heart-black.svg";
 import squarespace from "./squarespace.svg";
 import React, { useState, useEffect } from "react";
 import { Loader } from "./components/Loader";
+import { Routes, Route } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 import axios from "axios";
 import search from "./components/search";
@@ -97,7 +98,7 @@ function App() {
             <div className="mousehover">
               <p>Trending Searches</p>
               <div className="trending_searches">
-                <p>Wallpapers</p>
+                <p >Wallpapers</p>
                 <p>travel</p>
                 <p>home</p>
                 <p>stagelights</p>
