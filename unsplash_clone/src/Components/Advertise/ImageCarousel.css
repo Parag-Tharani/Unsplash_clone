@@ -1,0 +1,74 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.Slider{
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    height: 250px;
+    margin: auto;
+    position: relative;
+    width: 90%;
+    place-items: center;
+    overflow: hidden;
+}
+
+.slide-track{
+    display: flex;
+    animation-name: scrollEffect;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-direction: inherit;
+    animation-fill-mode:both;
+    animation-timing-function: ease;
+    padding-left: 50px;
+}
+
+/* .slide-track:hover{
+    animation-play-state: paused;
+} */
+
+
+.slide{
+    height: 200px;
+    width: 130px;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    perspective: 200px;
+}
+
+.slide img{
+    width: 100%;
+    box-shadow: 2px 4px 2px 2px rgb(178, 175, 175);
+    border-radius: 50%;
+}
+
+
+
+.slider::before,
+.slider::after{
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0% rgba(255, 255, 255, 0) 100%);
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 15%;
+    z-index: 2;
+}
+
+.slider::before{
+    left: 0;
+    top: 0;
+}
+
+@keyframes scrollEffect{
+    0%{
+        transform: translateX(0);
+    }
+
+    100%{
+        transform: translateX( calc(-50px * 9) );
+    }
+}
