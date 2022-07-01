@@ -1,7 +1,8 @@
 import React from 'react'
 
-export const search = () => {
-  return (
-    <div>search</div>
-  )
-}
+
+const Search = () => {
+  return <div>contact</div>;
+};
+
+export default Search;

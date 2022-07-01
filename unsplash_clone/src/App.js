@@ -5,6 +5,8 @@ import heart from "./heart-black.svg";
 import squarespace from "./squarespace.svg";
 import React, { useState, useEffect } from "react";
 import { Loader } from "./components/Loader";
+import Search from "./components/search";
+import { Link } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 import axios from "axios";
@@ -62,14 +64,17 @@ function App() {
   const [ishovering, setishovering] = useState(false);
   const [searchhovering, setsearchhovering] = useState(false);
 
-  
   function handlemouseenter(e) {
     console.log(e);
-    setishovering(true)
+    setishovering(true);
   }
   function handlemouseleave(e) {
     console.log(e);
-    setishovering(false)
+    setishovering(false);
+  }
+  function handlesearchleave(e) {
+    console.log(e);
+    setishovering(false);
   }
   function handlesearchhovering(e) {
     console.log(e);
@@ -91,28 +96,29 @@ function App() {
               onClick={handlesearchhovering}
             />
           </div>
-          <div
-            className={`    ${searchhovering ? "" : "hidden"}`}
-            onMouseLeave={handlemouseleave}
-          >
-            <div className="mousehover">
-              <p>Trending Searches</p>
-              <div className="trending_searches">
-                <p >Wallpapers</p>
-                <p>travel</p>
-                <p>home</p>
-                <p>stagelights</p>
-                <p>yoga</p>
-              </div>
-              <p>Trending Topics</p>
-              <div className="trending_topics">
-                <p>Wallpapers</p>
-                <p>Arts & Culture</p>
-                <p>3D Renders</p>
-                <p>Architecture</p>
-                <p>Textures & Patterns</p>
-              </div>
-              {/* <p>Trending Collections</p>
+          <div onMouseLeave={handlesearchleave}>
+            <div
+              className={` data   ${searchhovering ? "" : "hidden"}`}
+              // onMouseLeave={handlesearchleave}
+            >
+              <div className="mousehover">
+                <p>Trending Searches</p>
+                <div className="trending_searches">
+                  {/* <Link to="/search"> wallpapers </Link> */}
+                  <p>travel</p>
+                  <p>home</p>
+                  <p>stagelights</p>
+                  <p>yoga</p>
+                </div>
+                <p>Trending Topics</p>
+                <div className="trending_topics">
+                  <p>Wallpapers</p>
+                  <p>Arts & Culture</p>
+                  <p>3D Renders</p>
+                  <p>Architecture</p>
+                  <p>Textures & Patterns</p>
+                </div>
+                {/* <p>Trending Collections</p>
               <div className="trending_collections">
                 <p>Light Tones</p>
                 <p>Medium frames in interior</p>
@@ -120,6 +126,7 @@ function App() {
                 <p>MockUps</p>
                 <p>Flat Lay Lifestyle</p>
               </div> */}
+              </div>
             </div>
           </div>
         </div>
@@ -201,18 +208,24 @@ function App() {
                                   </span>
                                 </div>
                                 <div className="right_bottom4">
-                                  <div className="svgjss4">
-                                    <svg
-                                      width="32"
-                                      height="32"
-                                      className="c_c7b"
-                                      viewBox="0 0 32 32"
-                                      version="1.1"
-                                      aria-hidden="false"
-                                    >
-                                      <path d="M25.8 15.5l-7.8 7.2v-20.7h-4v20.7l-7.8-7.2-2.7 3 12.5 11.4 12.5-11.4z"></path>
-                                    </svg>
-                                  </div>
+                                  <a
+                                    href={`${image.links.download}&force=true`}
+                                    download
+                                    target="_blank"
+                                  >
+                                    <div className="svgjss4">
+                                      <svg
+                                        width="32"
+                                        height="32"
+                                        className="c_c7b"
+                                        viewBox="0 0 32 32"
+                                        version="1.1"
+                                        aria-hidden="false"
+                                      >
+                                        <path d="M25.8 15.5l-7.8 7.2v-20.7h-4v20.7l-7.8-7.2-2.7 3 12.5 11.4 12.5-11.4z"></path>
+                                      </svg>
+                                    </div>
+                                  </a>
                                 </div>
                               </div>
                             </div>
@@ -239,6 +252,7 @@ function App() {
                 {images2?.map((image) => (
                   <div key={image.id} className="card">
                     <div
+                      key={image.id}
                       className="image_main_div"
                       onMouseEnter={handlemouseenter}
                       onMouseLeave={handlemouseleave}
@@ -274,18 +288,24 @@ function App() {
                                   </span>
                                 </div>
                                 <div className="right_bottom4">
-                                  <div className="svgjss4">
-                                    <svg
-                                      width="32"
-                                      height="32"
-                                      class="c_c7b"
-                                      viewBox="0 0 32 32"
-                                      version="1.1"
-                                      aria-hidden="false"
-                                    >
-                                      <path d="M25.8 15.5l-7.8 7.2v-20.7h-4v20.7l-7.8-7.2-2.7 3 12.5 11.4 12.5-11.4z"></path>
-                                    </svg>
-                                  </div>
+                                  <a
+                                    href={`${image.links.download}&force=true`}
+                                    download
+                                    target="_blank"
+                                  >
+                                    <div className="svgjss4">
+                                      <svg
+                                        width="32"
+                                        height="32"
+                                        className="c_c7b"
+                                        viewBox="0 0 32 32"
+                                        version="1.1"
+                                        aria-hidden="false"
+                                      >
+                                        <path d="M25.8 15.5l-7.8 7.2v-20.7h-4v20.7l-7.8-7.2-2.7 3 12.5 11.4 12.5-11.4z"></path>
+                                      </svg>
+                                    </div>
+                                  </a>
                                 </div>
                               </div>
                             </div>
@@ -311,11 +331,18 @@ function App() {
               <div>
                 {images3?.map((image) => (
                   <div key={image.id} className="card">
-                    <div className="image_main_div">
+                    <div
+                      key={image.id}
+                      className="image_main_div"
+                      onMouseEnter={handlemouseenter}
+                      onMouseLeave={handlemouseleave}
+                    >
                       <div className="imagehover">
                         <div className="top4">
                           <div className="kelbm">
-                            <div className="ppjpj">
+                            <div
+                              className={`ppjpj ${ishovering ? "" : "hidden"} `}
+                            >
                               <div className="top6">
                                 <div className="left_img">
                                   <p></p>
@@ -341,18 +368,24 @@ function App() {
                                   </span>
                                 </div>
                                 <div className="right_bottom4">
-                                  <div className="svgjss4">
-                                    <svg
-                                      width="32"
-                                      height="32"
-                                      class="c_c7b"
-                                      viewBox="0 0 32 32"
-                                      version="1.1"
-                                      aria-hidden="false"
-                                    >
-                                      <path d="M25.8 15.5l-7.8 7.2v-20.7h-4v20.7l-7.8-7.2-2.7 3 12.5 11.4 12.5-11.4z"></path>
-                                    </svg>
-                                  </div>
+                                  <a
+                                    href={`${image.links.download}&force=true`}
+                                    download
+                                    target="_blank"
+                                  >
+                                    <div className="svgjss4">
+                                      <svg
+                                        width="32"
+                                        height="32"
+                                        className="c_c7b"
+                                        viewBox="0 0 32 32"
+                                        version="1.1"
+                                        aria-hidden="false"
+                                      >
+                                        <path d="M25.8 15.5l-7.8 7.2v-20.7h-4v20.7l-7.8-7.2-2.7 3 12.5 11.4 12.5-11.4z"></path>
+                                      </svg>
+                                    </div>
+                                  </a>
                                 </div>
                               </div>
                             </div>
@@ -370,6 +403,9 @@ function App() {
           </div>
         </div>
       </div>
+      {/* <Routes>
+        <Route path="/search" element={<Search />}></Route>
+      </Routes> */}
     </>
   );
 }
