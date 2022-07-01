@@ -252,6 +252,7 @@ body {
   color: #f0e9e9;
   font-size: 14px;
   border-radius: 4px;
+  width: 200px;
 }
 
 .span_jss1 {
@@ -296,4 +297,7 @@ body {
   padding-top: 5px;
   height: 24px;
   width: 14px;
+}
+.hidden {
+  display: none;
 }

@@ -62,6 +62,14 @@ function App() {
   const display_search_demo = () => {
     return <></>;
   };
+  function handlemouseenter(e) {
+    console.log(e);
+    setishovering(true)
+  }
+  function handlemouseleave(e) {
+    console.log(e);
+    setishovering(false)
+  }
 
   return (
     <>
@@ -150,11 +158,19 @@ function App() {
               <div>
                 {images?.map((image) => (
                   <div key={image.id} className="card">
-                    <div className="image_main_div">
+                    <div key={image.id}
+                      className="image_main_div"
+                      onMouseEnter={() => {
+                        handlemouseenter()
+                      }}
+                      onMouseLeave={handlemouseleave}
+                    >
                       <div className="imagehover">
                         <div className="top4">
                           <div className="kelbm">
-                            <div className="ppjpj">
+                            <div
+                              className={`ppjpj ${ishovering ? "" : "hidden"} `}
+                            >
                               <div className="top6">
                                 <div className="left_img">
                                   <p></p>
@@ -215,13 +231,19 @@ function App() {
               loader={<Loader />}
             >
               <div>
-                {images2?.map((image) => (
+                {images?.map((image) => (
                   <div key={image.id} className="card">
-                    <div className="image_main_div">
+                    <div
+                      className="image_main_div"
+                      onMouseEnter={handlemouseenter}
+                      onMouseLeave={handlemouseleave}
+                    >
                       <div className="imagehover">
                         <div className="top4">
                           <div className="kelbm">
-                            <div className="ppjpj">
+                            <div
+                              className={`ppjpj ${ishovering ? "" : "hidden"} `}
+                            >
                               <div className="top6">
                                 <div className="left_img">
                                   <p></p>
