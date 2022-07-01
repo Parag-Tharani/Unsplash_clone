@@ -155,7 +155,7 @@ export const Navbar1 = () => {
           </Search>
 
           <Box className="scroll" sx={{display:"flex", alignItems:"center", justifyContent:"center", overflow:"scroll"}}>
-          <Link to='#' className="onHover responsiveness">Advertise</Link>
+          <Link to='/advertise' className="onHover responsiveness">Advertise</Link>
           <Link to='/blog' className="onHover responsiveness">Blog</Link>
           <Box sx={{color:"#7e7b7bd5", borderLeft:1, marginLeft:"10px", marginRight:"10px", borderColor:"#7e7b7bd5", height:30}}></Box>
           {logedIn?null:
