@@ -1,60 +1,67 @@
 // import React from "react";
 import "./App.css";
 import banner from "./banner.png";
+import heart from "./heart-black.svg";
 import squarespace from "./squarespace.svg";
 import React, { useState, useEffect } from "react";
 import { Loader } from "./components/Loader";
 import InfiniteScroll from "react-infinite-scroll-component";
-import search from './components/search'
+import axios from "axios";
+import search from "./components/search";
 import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
-
+var index = 1;
 function App() {
   const [images, setImage] = useState([]);
   const [search, setsearch] = useState([]);
 
   const [images2, setimage2] = React.useState([]);
   const [images3, setimage3] = React.useState([]);
-  const [index, setindex] = React.useState([1]);
-  // var index=1
+  // const [index, setindex] = React.useState([1]);
 
-useEffect(() => {
-  FetchImages();
-}, []);
+  useEffect(() => {
+    FetchImages();
+  }, []);
 
-  const FetchImages = ( count =10 ) => {
+  const FetchImages = (count = 10) => {
     const apiRoot = "https://api.unsplash.com";
     const accessKey = process.env.REACT_APP_ACCESSKEY;
+    console.log(index);
+    axios
+      .get(
+        `https://api.unsplash.com/search/photos?page=${index}&per_page=10&query=office&client_id=rCgXNxiP3rG7_bJ_k4zxiVa0PISE5bJlC7JAt0uJRts&count=${count}`
+      )
+      .then((res) => {
+        console.log(res.data);
+        setImage([...images, ...res.data.results]);
+      });
+    axios
+      .get(
+        `https://api.unsplash.com/search/photos?page=${
+          index + 1
+        }&per_page=10&query=office&client_id=rCgXNxiP3rG7_bJ_k4zxiVa0PISE5bJlC7JAt0uJRts&count=${count}`
+      )
+      .then((res) => {
+        console.log(res.data);
+        setimage2([...images2, ...res.data.results]);
+      });
+    axios
+      .get(
+        `https://api.unsplash.com/search/photos?page=${
+          index + 2
+        }&per_page=10&query=office&client_id=rCgXNxiP3rG7_bJ_k4zxiVa0PISE5bJlC7JAt0uJRts&count=${count}`
+      )
+      .then((res) => {
+        console.log(res.data);
+        setimage3([...images3, ...res.data.results]);
+      });
+    index += 3;
+  };
 
-  
-    fetch(
-      `https://api.unsplash.com/search/photos?page=${index}&per_page=30&query=office&client_id=DXYD_GyjDUwagXbKcj_4HvYGwkxDp8HKCkwXUJ12rT8&count=${count}`
-    )
-      .then((res) => res.json())
-      .then((res) => setImage(res.results));
-    fetch(
-      `https://api.unsplash.com/search/photos?page=${
-        index + 1
-      }&per_page=30&query=office&client_id=DXYD_GyjDUwagXbKcj_4HvYGwkxDp8HKCkwXUJ12rT8&count=${count}`
-    )
-      .then((res) => res.json())
-      .then((res) => setimage2(res.results));
-    fetch(
-      `https://api.unsplash.com/search/photos?page=${index +2}&per_page=30&query=office&client_id=DXYD_GyjDUwagXbKcj_4HvYGwkxDp8HKCkwXUJ12rT8&count=${count}`
-    )
-      .then((res) => res.json())
-      .then((res) => setimage3(res.results));
-   
-  }; 
-
-    
-  const [ishovering, setishovering] = useState(true)
+  const [ishovering, setishovering] = useState(false);
   const display_search_demo = () => {
-    return <>
-
-    </>
-  }
-  
+    return <></>;
+  };
 
   return (
     <>
@@ -140,16 +147,54 @@ useEffect(() => {
               hasMore={true}
               loader={<Loader />}
             >
-              <>
+              <div>
                 {images?.map((image) => (
                   <div key={image.id} className="card">
-                    {/* <div className="top4">
-                      <p>+</p>
-                    </div> */}
-                    <img src={image.urls.regular} alt="" />
+                    <div className="image_main_div">
+                      <div className="imagehover">
+                        <div className="top4">
+                          <div className="kelbm">
+                            <div className="ppjpj">
+                              <div className="top6">
+                                <div className="left_img">
+                                  <p></p>
+                                </div>
+                                <div className="right_img">
+                                 
+                                  <img src={heart} alt="" />
+                                  
+                                  <p>+</p>
+                                </div>
+                              </div>
+                              <div className="bottom4 ">
+                                <div className="left-bottom4">
+                                  <span className="span2">
+                                    <div className="bottom4_img">
+                                      <span className="span_jss1">
+                                      <img
+                                        src={image.user.profile_image.small}
+                                        alt=""
+                                        />
+                                      </span>
+                                    </div>
+                                    <p>{image.user.name}</p>
+                                  </span>
+                                </div>
+                                <div className="right_bottom4">
+                                  <div className="svgjss4"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="img">
+                        <img src={image.urls.regular} alt="" />
+                      </div>
+                    </div>
                   </div>
                 ))}
-              </>
+              </div>
             </InfiniteScroll>
           </div>
           <div className="image_box">

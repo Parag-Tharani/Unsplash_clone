@@ -8,6 +8,7 @@ text-align: center;
   position: relative;
   width: 80px;
   height: 80px;
+  
 }
 .lds-ellipsis div {
   position: absolute;
@@ -16,7 +17,7 @@ text-align: center;
   height: 13px;
   border-radius: 50%;
   background: #222;
-  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  // animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
 .lds-ellipsis div:nth-child(1) {
   left: 8px;
