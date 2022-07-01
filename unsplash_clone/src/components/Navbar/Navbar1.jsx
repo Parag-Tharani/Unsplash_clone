@@ -142,7 +142,7 @@ export const Navbar1 = () => {
     return (
         <Box sx={{display:"flex", padding:0.8, alignItems:"center", justifyContent:"center"}}>
 
-            <img alt="Logo" style={{position:"sticky", left:2,borderRadius:"100%"}} width={"55px"} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf31fI-8KqbQk8HKfgCdJTZ_ZpMe1bdtKArA&usqp=CAU" />
+            <img alt="Logo" style={{position:"sticky",width:"55px",height:'55px', left:2,borderRadius:"100%"}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf31fI-8KqbQk8HKfgCdJTZ_ZpMe1bdtKArA&usqp=CAU" />
 
             <Search>
             <SearchIconWrapper>
@@ -156,7 +156,7 @@ export const Navbar1 = () => {
 
           <Box className="scroll" sx={{display:"flex", alignItems:"center", justifyContent:"center", overflow:"scroll"}}>
           <Link to='#' className="onHover responsiveness">Advertise</Link>
-          <Link to='#' className="onHover responsiveness">Blog</Link>
+          <Link to='/blog' className="onHover responsiveness">Blog</Link>
           <Box sx={{color:"#7e7b7bd5", borderLeft:1, marginLeft:"10px", marginRight:"10px", borderColor:"#7e7b7bd5", height:30}}></Box>
           {logedIn?null:
           <>
@@ -180,7 +180,7 @@ export const Navbar1 = () => {
         <Box sx={{display:"flex", alignItems:"center"}}>
         <NotificationsIcon fontSize="medium" className="onHover" sx={{marginLeft:1}}/>
         <Button onClick={handleClick2} aria-describedby={id2}>
-        <img className="onHover" alt="ProfilePic" style={{width:"50px", borderRadius:"100%"}} src={ payload.profilepic } />
+        <img className="onHover" alt="ProfilePic" style={{width:"50px",height:'50px', borderRadius:"100%"}} src={ payload.profilepic } />
         </Button>
         <Popover
               className={id2}

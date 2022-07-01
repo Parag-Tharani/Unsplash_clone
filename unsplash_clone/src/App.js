@@ -9,7 +9,7 @@ import { Blog } from "./Pages/Blog";
 function App() {
   return (
     <div className="App">
-    <Blog />
+    {/* <Blog /> */}
       <Routes>
         <Route path='/' element={<Navbar/>}></Route>
         <Route path='/' element={""}></Route>
@@ -19,7 +19,7 @@ function App() {
         <Route path='/signup' element={<SignUp/>}></Route>
          <Route path='/blog' element={<Blog/>}></Route>
       </Routes>
-
+  {/* <h1>hello</h1> */}
     </div>
   );
 }
