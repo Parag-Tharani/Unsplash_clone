@@ -1,3 +1,5 @@
+
+import CssBaseline from "@mui/material/CssBaseline";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -5,6 +7,15 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './components/Redux/store';
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <BrowserRouter>
+    <CssBaseline>
+      <App />
+    </CssBaseline>
+  </BrowserRouter>
+);
+
 // import {render} from
 // const container = (document.getElementById('root'));
 // root.render(
