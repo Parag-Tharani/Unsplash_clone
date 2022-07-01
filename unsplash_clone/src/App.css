@@ -8,6 +8,10 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+/* .img {
+  
+    background: rgba(0, 0, 0, 0.3);
+} */
 .App {
   display: flex;
 
@@ -138,6 +142,7 @@ body {
       transition: opacity .1s ease-in-out,visibility .1s ease-in-out;
 }
 .mousehover {
+  box-shadow:  0.5px 0.5px 2px 2px #767676;
   background-color: #ffffff;
   color: grey;
   padding: 4%;
@@ -274,6 +279,7 @@ body {
         display: flex;
     justify-self: end;
     transition: opacity .1s ease-in-out,visibility .1s ease-in-out;
+    cursor: pointer;
 }
 .svgjss4 {
   display: inline-flex;
@@ -300,4 +306,5 @@ body {
 }
 .hidden {
   display: none;
+  
 }

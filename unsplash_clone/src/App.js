@@ -59,9 +59,9 @@ function App() {
   };
 
   const [ishovering, setishovering] = useState(false);
-  const display_search_demo = () => {
-    return <></>;
-  };
+  const [searchhovering, setsearchhovering] = useState(false);
+
+  
   function handlemouseenter(e) {
     console.log(e);
     setishovering(true)
@@ -69,6 +69,10 @@ function App() {
   function handlemouseleave(e) {
     console.log(e);
     setishovering(false)
+  }
+  function handlesearchhovering(e) {
+    console.log(e);
+    setsearchhovering(true);
   }
 
   return (
@@ -83,12 +87,13 @@ function App() {
             <input
               type="text"
               placeholder="Search free high-resolution photos"
-              onClick={() => {
-                setishovering(true);
-              }}
+              onClick={handlesearchhovering}
             />
           </div>
-          <i className={`    ${ishovering ? "" : "hidden"}`}>
+          <div
+            className={`    ${searchhovering ? "" : "hidden"}`}
+            onMouseLeave={handlemouseleave}
+          >
             <div className="mousehover">
               <p>Trending Searches</p>
               <div className="trending_searches">
@@ -106,16 +111,16 @@ function App() {
                 <p>Architecture</p>
                 <p>Textures & Patterns</p>
               </div>
-              <p>Trending Collections</p>
+              {/* <p>Trending Collections</p>
               <div className="trending_collections">
                 <p>Light Tones</p>
                 <p>Medium frames in interior</p>
                 <p>Springs</p>
                 <p>MockUps</p>
                 <p>Flat Lay Lifestyle</p>
-              </div>
+              </div> */}
             </div>
-          </i>
+          </div>
         </div>
         <div className="banner">
           <img src={banner} alt="" />
@@ -158,11 +163,10 @@ function App() {
               <div>
                 {images?.map((image) => (
                   <div key={image.id} className="card">
-                    <div key={image.id}
+                    <div
+                      key={image.id}
                       className="image_main_div"
-                      onMouseEnter={() => {
-                        handlemouseenter()
-                      }}
+                      onMouseEnter={handlemouseenter}
                       onMouseLeave={handlemouseleave}
                     >
                       <div className="imagehover">
@@ -200,7 +204,7 @@ function App() {
                                     <svg
                                       width="32"
                                       height="32"
-                                      class="c_c7b"
+                                      className="c_c7b"
                                       viewBox="0 0 32 32"
                                       version="1.1"
                                       aria-hidden="false"
@@ -231,7 +235,7 @@ function App() {
               loader={<Loader />}
             >
               <div>
-                {images?.map((image) => (
+                {images2?.map((image) => (
                   <div key={image.id} className="card">
                     <div
                       className="image_main_div"
