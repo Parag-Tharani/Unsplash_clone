@@ -277,24 +277,23 @@ body {
 .svgjss4 {
   display: inline-flex;
     justify-content: center;
-        background-color: #ffffffe6;
+    background-color: #ffffffe6;
     border: 1px solid #0000;
     box-shadow: 0 1px 2px #0000000f;
     color: #767676;
-        font-size: 14px;
     height: 32px;
     line-height: 30px;
     padding: 0 11px;
-        fill: currentColor;
+    fill: currentColor;
     border: 1px solid #0000;
     border-radius: 4px;
-    display: inline-block;
     text-align: center;
     text-decoration: none;
     transition: all .1s ease-in-out;
-    -webkit-user-select: none;
-    user-select: none;
-    white-space: nowrap;
-        font-weight: 500;
     text-decoration-skip-ink: auto;
+}
+.svgjss4 svg {
+  padding-top: 5px;
+  height: 24px;
+  width: 14px;
 }

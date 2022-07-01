@@ -160,9 +160,8 @@ function App() {
                                   <p></p>
                                 </div>
                                 <div className="right_img">
-                                 
                                   <img src={heart} alt="" />
-                                  
+
                                   <p>+</p>
                                 </div>
                               </div>
@@ -171,9 +170,9 @@ function App() {
                                   <span className="span2">
                                     <div className="bottom4_img">
                                       <span className="span_jss1">
-                                      <img
-                                        src={image.user.profile_image.small}
-                                        alt=""
+                                        <img
+                                          src={image.user.profile_image.small}
+                                          alt=""
                                         />
                                       </span>
                                     </div>
@@ -181,7 +180,18 @@ function App() {
                                   </span>
                                 </div>
                                 <div className="right_bottom4">
-                                  <div className="svgjss4"></div>
+                                  <div className="svgjss4">
+                                    <svg
+                                      width="32"
+                                      height="32"
+                                      class="c_c7b"
+                                      viewBox="0 0 32 32"
+                                      version="1.1"
+                                      aria-hidden="false"
+                                    >
+                                      <path d="M25.8 15.5l-7.8 7.2v-20.7h-4v20.7l-7.8-7.2-2.7 3 12.5 11.4 12.5-11.4z"></path>
+                                    </svg>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -204,16 +214,64 @@ function App() {
               hasMore={true}
               loader={<Loader />}
             >
-              <>
+              <div>
                 {images2?.map((image) => (
                   <div key={image.id} className="card">
-                    {/* <div className="top4">
-                      <p>+</p>
-                    </div> */}
-                    <img src={image.urls.regular} alt="" />
+                    <div className="image_main_div">
+                      <div className="imagehover">
+                        <div className="top4">
+                          <div className="kelbm">
+                            <div className="ppjpj">
+                              <div className="top6">
+                                <div className="left_img">
+                                  <p></p>
+                                </div>
+                                <div className="right_img">
+                                  <img src={heart} alt="" />
+
+                                  <p>+</p>
+                                </div>
+                              </div>
+                              <div className="bottom4 ">
+                                <div className="left-bottom4">
+                                  <span className="span2">
+                                    <div className="bottom4_img">
+                                      <span className="span_jss1">
+                                        <img
+                                          src={image.user.profile_image.small}
+                                          alt=""
+                                        />
+                                      </span>
+                                    </div>
+                                    <p>{image.user.name}</p>
+                                  </span>
+                                </div>
+                                <div className="right_bottom4">
+                                  <div className="svgjss4">
+                                    <svg
+                                      width="32"
+                                      height="32"
+                                      class="c_c7b"
+                                      viewBox="0 0 32 32"
+                                      version="1.1"
+                                      aria-hidden="false"
+                                    >
+                                      <path d="M25.8 15.5l-7.8 7.2v-20.7h-4v20.7l-7.8-7.2-2.7 3 12.5 11.4 12.5-11.4z"></path>
+                                    </svg>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="img">
+                        <img src={image.urls.regular} alt="" />
+                      </div>
+                    </div>
                   </div>
                 ))}
-              </>
+              </div>
             </InfiniteScroll>
           </div>
           <div className="image_box">
@@ -223,16 +281,64 @@ function App() {
               hasMore={true}
               loader={<Loader />}
             >
-              <>
+              <div>
                 {images3?.map((image) => (
                   <div key={image.id} className="card">
-                    {/* <div className="top4">
-                      <p>+</p>
-                    </div> */}
-                    <img src={image.urls.regular} alt="" />
+                    <div className="image_main_div">
+                      <div className="imagehover">
+                        <div className="top4">
+                          <div className="kelbm">
+                            <div className="ppjpj">
+                              <div className="top6">
+                                <div className="left_img">
+                                  <p></p>
+                                </div>
+                                <div className="right_img">
+                                  <img src={heart} alt="" />
+
+                                  <p>+</p>
+                                </div>
+                              </div>
+                              <div className="bottom4 ">
+                                <div className="left-bottom4">
+                                  <span className="span2">
+                                    <div className="bottom4_img">
+                                      <span className="span_jss1">
+                                        <img
+                                          src={image.user.profile_image.small}
+                                          alt=""
+                                        />
+                                      </span>
+                                    </div>
+                                    <p>{image.user.name}</p>
+                                  </span>
+                                </div>
+                                <div className="right_bottom4">
+                                  <div className="svgjss4">
+                                    <svg
+                                      width="32"
+                                      height="32"
+                                      class="c_c7b"
+                                      viewBox="0 0 32 32"
+                                      version="1.1"
+                                      aria-hidden="false"
+                                    >
+                                      <path d="M25.8 15.5l-7.8 7.2v-20.7h-4v20.7l-7.8-7.2-2.7 3 12.5 11.4 12.5-11.4z"></path>
+                                    </svg>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="img">
+                        <img src={image.urls.regular} alt="" />
+                      </div>
+                    </div>
                   </div>
                 ))}
-              </>
+              </div>
             </InfiniteScroll>
           </div>
         </div>
