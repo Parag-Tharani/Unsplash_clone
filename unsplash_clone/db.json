@@ -1,4 +1,180 @@
 {
+  "Img": [
+    {
+      "id": 1,
+      "ImgURL": "https://unsplash-assets.imgix.net/marketing/vertise/logos/indie/logo-constantcontact.svg?auto=format&fit=crop&q=60"
+    },
+    {
+      "id": 2,
+      "ImgURL": "https://unsplash-assets.imgix.net/marketing/vertise/logos/indie/logo-creativemarket.svg?auto=format&fit=crop&q=60"
+    },
+    {
+      "id": 3,
+      "ImgURL": "https://unsplash-assets.imgix.net/marketing/vertise/logos/indie/logo-iconosquare.svg?auto=format&fit=crop&q=60"
+    },
+    {
+      "id": 4,
+      "ImgURL": "https://unsplash-assets.imgix.net/marketing/vertise/logos/indie/logo-skillshare.svg?auto=format&fit=crop&q=60"
+    },
+    {
+      "id": 5,
+      "ImgURL": "https://unsplash-assets.imgix.net/marketing/vertise/logos/indie/logo-grammarly.svg?auto=format&fit=crop&q=60"
+    },
+    {
+      "id": 6,
+      "ImgURL": "https://unsplash-assets.imgix.net/marketing/vertise/logos/indie/logo-printful.svg?auto=format&fit=crop&q=60"
+    },
+    {
+      "id": 7,
+      "ImgURL": "https://unsplash-assets.imgix.net/marketing/vertise/logos/indie/logo-bluehost.svg?auto=format&fit=crop&q=60"
+    },
+    {
+      "id": 8,
+      "ImgURL": "https://unsplash-assets.imgix.net/marketing/vertise/logos/indie/logo-buzzfeed.svg?auto=format&fit=crop&q=60"
+    },
+    {
+      "id": 9,
+      "ImgURL": "https://unsplash-assets.imgix.net/marketing/vertise/logos/indie/logo-brandox.svg?auto=format&fit=crop&q=60"
+    },
+    {
+      "id": 10,
+      "ImgURL": "https://unsplash-assets.imgix.net/marketing/vertise/logos/indie/logo-fiverr.svg?auto=format&fit=crop&q=60"
+    }
+  ],
+  "Img2": [
+    {
+      "id": 1,
+      "ImgURL": "https://unsplash-assets.imgix.net/marketing/vertis…s/indie/logo-hotjar.svg?auto=format&fit=crop&q=60"
+    },
+    {
+      "id": 2,
+      "ImgURL": ""
+    },
+    {
+      "id": 3,
+      "ImgURL": ""
+    },
+    {
+      "id": 4,
+      "ImgURL": ""
+    },
+    {
+      "id": 5,
+      "ImgURL": ""
+    },
+    {
+      "id": 6,
+      "ImgURL": ""
+    },
+    {
+      "id": 7,
+      "ImgURL": ""
+    },
+    {
+      "id": 8,
+      "ImgURL": ""
+    },
+    {
+      "id": 9,
+      "ImgURL": ""
+    },
+    {
+      "id": 10,
+      "ImgURL": ""
+    }
+  ],
+  "Cards": [
+    {
+      "id": 1,
+      "Imgurl": "https://unsplash-assets.imgix.net/marketing/vertise/direct-download.svg?auto=format&fit=crop&q=60",
+      "title": "Download",
+      "des": "Associate your brand with user’s positive emotion of finding the perfect photo for their creation."
+    },
+    {
+      "id": 2,
+      "Imgurl": "https://unsplash-assets.imgix.net/marketing/vertise/direct-feed.svg?auto=format&fit=crop&q=60",
+      "title": "Feed",
+      "des": "Reach creative professionals when they’re most focused on finding the perfect image."
+    },
+    {
+      "id": 3,
+      "Imgurl": "https://unsplash-assets.imgix.net/marketing/vertise/direct-homepage.svg?auto=format&fit=crop&q=60",
+      "title": "Homepage",
+      "des": "Taking over the homepage increases your brand’s with the entirety of Unsplash’s audience."
+    },
+    {
+      "id": 4,
+      "Imgurl": "https://unsplash-assets.imgix.net/marketing/vertise/direct-video.svg?auto=format&fit=crop&q=60",
+      "title": "Video",
+      "des": "Use eye-grabbing videos to give users a better understanding of your brand’s value-add."
+    }
+  ],
+  "icons1": [
+    {
+      "id": 1,
+      "iconURL": "https://unsplash-assets.imgix.net/marketing/vertise/logos/01-msft.svg?auto=format&fit=crop&q=60"
+    },
+    {
+      "id": 2,
+      "iconURL": "https://unsplash-assets.imgix.net/marketing/vertise/logos/02-square.svg?auto=format&fit=crop&q=60"
+    },
+    {
+      "id": 3,
+      "iconURL": "https://unsplash-assets.imgix.net/marketing/vertise/logos/03-spotify.svg?auto=format&fit=crop&q=60"
+    },
+    {
+      "id": 4,
+      "iconURL": "https://unsplash-assets.imgix.net/marketing/vertise/logos/05-google.svg?auto=format&fit=crop&q=60"
+    },
+    {
+      "id": 5,
+      "iconURL": "https://unsplash-assets.imgix.net/marketing/vertise/logos/04-timberland.svg?auto=format&fit=crop&q=60"
+    },
+    {
+      "id": 6,
+      "iconURL": "https://unsplash-assets.imgix.net/marketing/vertise/logos/06-creuset.svg?auto=format&fit=crop&q=60"
+    }
+  ],
+  "icons2": [
+    {
+      "id": 1,
+      "iconURL": "https://unsplash-assets.imgix.net/marketing/vertise/logos/07-chewy.svg?auto=format&fit=crop&q=60"
+    },
+    {
+      "id": 2,
+      "iconURL": "https://unsplash-assets.imgix.net/marketing/vertise/logos/08-tyson.svg?auto=format&fit=crop&q=60"
+    },
+    {
+      "id": 3,
+      "iconURL": "https://unsplash-assets.imgix.net/marketing/vertise/logos/09-xps.svg?auto=format&fit=crop&q=60"
+    },
+    {
+      "id": 4,
+      "iconURL": "https://unsplash-assets.imgix.net/marketing/vertise/logos/10-samsung.svg?auto=format&fit=crop&q=60"
+    },
+    {
+      "id": 5,
+      "iconURL": "https://unsplash-assets.imgix.net/marketing/vertise/logos/11-boxedwater.svg?auto=format&fit=crop&q=60"
+    }
+  ],
+  "CompanyForm": [
+    {
+      "id": 1,
+      "Name": "ABC "
+    },
+    {
+      "Name": "Amarjeet ",
+      "Email": "test@test.com",
+      "Company": "XYZ Pvt. Ltd.",
+      "id": 2
+    },
+    {
+      "Name": "",
+      "Email": "",
+      "Company": "",
+      "id": 3
+    }
+  ],
   
   "usersData": [
     {
