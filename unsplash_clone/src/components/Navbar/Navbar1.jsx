@@ -176,7 +176,7 @@ export const Navbar1 = () => {
         <Box sx={{display:"flex", alignItems:"center"}}>
         <NotificationsIcon fontSize="medium" className="onHover" sx={{marginLeft:1}}/>
         <Button onClick={handleClick2} aria-describedby={id2}>
-        <img className="onHover" alt="ProfilePic" style={{width:"50px", borderRadius:"50px"}} src={ payload.profilepic } />
+        <img className="onHover" alt="ProfilePic" style={{width:"50px", borderRadius:"100%"}} src={ payload.profilepic } />
         </Button>
         <Popover
               className={id2}
