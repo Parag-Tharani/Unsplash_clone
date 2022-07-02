@@ -205,8 +205,8 @@ export const Navbar1 = () => {
           </Search>
 
           <Box className="scroll" sx={{display:"flex", alignItems:"center", justifyContent:"center", overflow:"scroll"}}>
-          <Link to='#' className="onHover responsiveness">Advertise</Link>
-          <Link to='#' className="onHover responsiveness">Blog</Link>
+          <a href='https://eloquent-tulumba-e80805.netlify.app/' className="onHover responsiveness">Advertise</a>
+          <a href='#' className="onHover responsiveness">Blog</a>
           <Box sx={{color:"#7e7b7bd5", borderLeft:1, marginLeft:"10px", marginRight:"10px", borderColor:"#7e7b7bd5", height:30}}></Box>
           {logedIn?null:
           <>
@@ -241,7 +241,7 @@ export const Navbar1 = () => {
                 horizontal: 'right',
               }}>
                 <Box sx={{padding:"4px 20px 10px 4px"}}>
-                  <p><Link className="onHover" to="#">View Profile</Link></p>
+                  <p><a className="onHover" href="#">View Profile</a></p>
                   <p><Link className="onHover" to="#">Stats</Link></p>
                   <p><Link className="onHover" to="#">Account Settings</Link></p>
                 </Box>
