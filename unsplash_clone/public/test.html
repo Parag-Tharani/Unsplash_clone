@@ -6,8 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
 <body>
-    <div id="root"></div>
+    <input  type='file'  id="sai"/>
+<button onclick="get()">Uplosded</button>
+
 </body>
+<script>
+    function get(){
+    var img= document.getElementById('sai').value
+    // console.log(img)
+form=new FormData()
+form.append(img,"photes")
+
+
+   
+    
+    }
+</script>
 </html>
