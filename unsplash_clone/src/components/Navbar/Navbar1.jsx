@@ -9,6 +9,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useDispatch, useSelector } from "react-redux";
 import Popover from '@mui/material/Popover';
+import { useDropzone } from "react-dropzone";
 import { useNavigate } from "react-router-dom";
 import CorporateFareIcon from '@mui/icons-material/CorporateFare';
 import CategoryIcon from '@mui/icons-material/Category';
@@ -137,96 +138,274 @@ export const Navbar1 = () => {
       const handleClose2 = () => {
         setAnchorEl2(null);
       };
-      
+      const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
+        noKeyboard: true,
+      });
+      const [anchorEl3, setAnchorEl3] = React.useState(null);
+      const navifn = () => {
+        if (acceptedFiles.length !== 0) {
+          navigate("/error");
+        } else {
+          console.log("no");
+        }
+      };
+      const open3 = Boolean(anchorEl3);
+      const id3 = open3 ? "simple-popover" : undefined;
+      const handleClick3 = (event) => {
+        setAnchorEl3(event.currentTarget);
+      };
+      const handleClose3 = () => {
+        setAnchorEl3(null);
+      };      
 
     return (
-        <Box sx={{display:"flex", padding:0.8, alignItems:"center", justifyContent:"center"}}>
+      <Box
+        sx={{
+          display: "flex",
+          padding: 0.8,
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <img
+          alt="Logo"
+          style={{
+            position: "sticky",
+            width: "55px",
+            height: "55px",
+            left: 2,
+            borderRadius: "100%",
+          }}
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf31fI-8KqbQk8HKfgCdJTZ_ZpMe1bdtKArA&usqp=CAU"
+        />
 
-            <img alt="Logo" style={{position:"sticky",width:"55px",height:'55px', left:2,borderRadius:"100%"}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf31fI-8KqbQk8HKfgCdJTZ_ZpMe1bdtKArA&usqp=CAU" />
-
-            <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search free high-resolution photos"
+        <Search>
+          <SearchIconWrapper>
+            <SearchIcon />
+          </SearchIconWrapper>
+          <StyledInputBase placeholder="Search free high-resolution photos" />
+          <Button onClick={handleClick3} aria-describedby={id3}>
+            <ImageSearchIcon
+              className="onHover"
+              sx={{
+                position: "relative",
+                display: "flex",
+                alignItems: "center",
+                padding: 1,
+              }}
             />
-              <ImageSearchIcon className="onHover" sx={{position:"relative", display:"flex", alignItems:"center", padding:1}}/>
-          </Search>
-
-          <Box className="scroll" sx={{display:"flex", alignItems:"center", justifyContent:"center", overflow:"scroll"}}>
-          <Link to='/advertise' className="onHover responsiveness">Advertise</Link>
-          <Link to='/blog' className="onHover responsiveness">Blog</Link>
-          <Box sx={{color:"#7e7b7bd5", borderLeft:1, marginLeft:"10px", marginRight:"10px", borderColor:"#7e7b7bd5", height:30}}></Box>
-          {logedIn?null:
-          <>
-          <Link to="/login" className="onHover">Login</Link>
-          <p style={{color:"#757575"}}>/</p>
-          <Link to="/signup" className="onHover">Signup</Link>
-          </>
-          }
-          
-        
-        
-        <label htmlFor="contained-button-file">
-        <Input disabled={logedIn?false:true} onChange={HandleSubmit} accept="image/*" id="contained-button-file" multiple type="file" />
-        <Button onClick={logedIn?null:() => navigate("/signup")} className="onHover" variant="contained" component="span" size="small" color="inherit" sx={{color:"#757575",padding:1, border:1, borderColor:"#757575", backgroundColor:"white", fontSize:12, boxShadow:"none", marginLeft:"20px", marginRight:"10px"}}>
-          Submit Photo
-        </Button>
-        </label>
-
-
-        {logedIn?
-        <Box sx={{display:"flex", alignItems:"center"}}>
-        <NotificationsIcon fontSize="medium" className="onHover" sx={{marginLeft:1}}/>
-        <Button onClick={handleClick2} aria-describedby={id2}>
-        <img className="onHover" alt="ProfilePic" style={{width:"50px",height:'50px', borderRadius:"100%"}} src={ payload.profilepic } />
-        </Button>
-        <Popover
-              className={id2}
-              open={open2}
-              anchorEl={anchorEl2}
-              onClose={handleClose2}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'right',
-              }}>
-                <Box sx={{padding:"4px 20px 10px 4px"}}>
-                  <p><Link className="onHover" to="#">View Profile</Link></p>
-                  <p><Link className="onHover" to="#">Stats</Link></p>
-                  <p><Link className="onHover" to="#">Account Settings</Link></p>
-                </Box>
-                  <hr style={{marginTop:-3}} />
-                  <Button onClick={handleLogout} sx={{width:"100%", color:"#757575", marginTop:-1}}>Logout { payload.username }</Button>
-              </Popover>
-        </Box>
-        :null}
-
-
-        <Toolbar>
-          <Box>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleClick}
-            aria-describedby={id}
+          </Button>
+          <Popover
+            className={id3}
+            open={open3}
+            anchorEl={anchorEl3}
+            onClose={handleClose3}
+            anchorReference="anchorPosition"
+            anchorPosition={{ top: 75, left: 280 }}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "right",
+            }}
           >
-            <MenuIcon />
-            </IconButton>
-            <Popover
-              className={id}
-              open={open}
-              anchorEl={anchorEl}
-              onClose={handleClose}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}>
-                <Box sx={{display:"flex", padding:"20px 30px 20px 40px", width:"20%"}}>
-                  <Box sx={{paddingRight:3}}>
-                    <Box sx={{display:"flex", alignItems:"center", marginBottom:-2}}><CorporateFareIcon fontSize={"small"}/><h4 style={{marginLeft:6}}>Company</h4></Box>
+            <Box
+              sx={{
+                width: "400px",
+                height: "300px",
+                padding: 2,
+                paddingBottom: 12,
+                borderRadius: 4,
+              }}
+            >
+              <p>Visual Search</p>
+              <div
+                style={{
+                  display: "flex",
+                  cursor: "pointer",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  border: "1px dotted black",
+                  height: "250px",
+                  padding: "20px",
+                }}
+                {...getRootProps({ className: "dropzone" })}
+              >
+                <ImageSearchIcon sx={{ fontSize: "90px" }} />
+                <input {...getInputProps()} onInput={navifn()} />
+                <h2 style={{ color: "grey" }}>
+                  Drag and Drop your image here or browse file to search
+                </h2>
+              </div>
+            </Box>
+          </Popover>
+        </Search>
+
+        <Box
+          className="scroll"
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            overflow: "scroll",
+          }}
+        >
+          <Link to="/advertise" className="onHover responsiveness">
+            Advertise
+          </Link>
+          <Link to="/blog" className="onHover responsiveness">
+            Blog
+          </Link>
+          <Box
+            sx={{
+              color: "#7e7b7bd5",
+              borderLeft: 1,
+              marginLeft: "10px",
+              marginRight: "10px",
+              borderColor: "#7e7b7bd5",
+              height: 30,
+            }}
+          ></Box>
+          {logedIn ? null : (
+            <>
+              <Link to="/login" className="onHover">
+                Login
+              </Link>
+              <p style={{ color: "#757575" }}>/</p>
+              <Link to="/signup" className="onHover">
+                Signup
+              </Link>
+            </>
+          )}
+
+          <label htmlFor="contained-button-file">
+            <Input
+              disabled={logedIn ? false : true}
+              onChange={HandleSubmit}
+              accept="image/*"
+              id="contained-button-file"
+              multiple
+              type="file"
+            />
+            <Button
+              onClick={logedIn ? null : () => navigate("/signup")}
+              className="onHover"
+              variant="contained"
+              component="span"
+              size="small"
+              color="inherit"
+              sx={{
+                color: "#757575",
+                padding: 1,
+                border: 1,
+                borderColor: "#757575",
+                backgroundColor: "white",
+                fontSize: 12,
+                boxShadow: "none",
+                marginLeft: "20px",
+                marginRight: "10px",
+              }}
+            >
+              Submit Photo
+            </Button>
+          </label>
+
+          {logedIn ? (
+            <Box sx={{ display: "flex", alignItems: "center" }}>
+              <NotificationsIcon
+                fontSize="medium"
+                className="onHover"
+                sx={{ marginLeft: 1 }}
+              />
+              <Button onClick={handleClick2} aria-describedby={id2}>
+                <img
+                  className="onHover"
+                  alt="ProfilePic"
+                  style={{
+                    width: "50px",
+                    height: "50px",
+                    borderRadius: "100%",
+                  }}
+                  src={payload.profilepic}
+                />
+              </Button>
+              <Popover
+                className={id2}
+                open={open2}
+                anchorEl={anchorEl2}
+                onClose={handleClose2}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "right",
+                }}
+              >
+                <Box sx={{ padding: "4px 20px 10px 4px" }}>
+                  <p>
+                    <Link className="onHover" to="#">
+                      View Profile
+                    </Link>
+                  </p>
+                  <p>
+                    <Link className="onHover" to="#">
+                      Stats
+                    </Link>
+                  </p>
+                  <p>
+                    <Link className="onHover" to="#">
+                      Account Settings
+                    </Link>
+                  </p>
+                </Box>
+                <hr style={{ marginTop: -3 }} />
+                <Button
+                  onClick={handleLogout}
+                  sx={{ width: "100%", color: "#757575", marginTop: -1 }}
+                >
+                  Logout {payload.username}
+                </Button>
+              </Popover>
+            </Box>
+          ) : null}
+
+          <Toolbar>
+            <Box>
+              <IconButton
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="open drawer"
+                onClick={handleClick}
+                aria-describedby={id}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Popover
+                className={id}
+                open={open}
+                anchorEl={anchorEl}
+                onClose={handleClose}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+              >
+                <Box
+                  sx={{
+                    display: "flex",
+                    padding: "20px 30px 20px 40px",
+                    width: "20%",
+                  }}
+                >
+                  <Box sx={{ paddingRight: 3 }}>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        marginBottom: -2,
+                      }}
+                    >
+                      <CorporateFareIcon fontSize={"small"} />
+                      <h4 style={{ marginLeft: 6 }}>Company</h4>
+                    </Box>
                     <p className="onHover">About</p>
                     <p className="onHover">History</p>
                     <p className="onHover">Join the team</p>
@@ -234,39 +413,63 @@ export const Navbar1 = () => {
                     <p className="onHover">Contact Us</p>
                     <p className="onHover">Help Center</p>
                   </Box>
-                  <Box sx={{paddingLeft:"10%",paddingRight:"10%"}}>
-                    <Box sx={{display:"flex", alignItems:"center", marginBottom:-2}}><CategoryIcon fontSize={"small"}/><h4 style={{marginLeft:6}}>Product</h4></Box>
+                  <Box sx={{ paddingLeft: "10%", paddingRight: "10%" }}>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        marginBottom: -2,
+                      }}
+                    >
+                      <CategoryIcon fontSize={"small"} />
+                      <h4 style={{ marginLeft: 6 }}>Product</h4>
+                    </Box>
                     <p className="onHover">Developers/Api</p>
                     <p className="onHover">Unsplash Dataset</p>
                     <p className="onHover">Unsplash for iOS</p>
                     <p className="onHover">Apps and Plugins</p>
                   </Box>
-                  <Box sx={{paddingLeft:3, paddingRight:1}}>
-                    <Box sx={{display:"flex", alignItems:"center", marginBottom:-2}}><PeopleIcon fontSize={"small"}/><h4 style={{marginLeft:6}}>Community</h4></Box>
+                  <Box sx={{ paddingLeft: 3, paddingRight: 1 }}>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        marginBottom: -2,
+                      }}
+                    >
+                      <PeopleIcon fontSize={"small"} />
+                      <h4 style={{ marginLeft: 6 }}>Community</h4>
+                    </Box>
                     <p className="onHover">Become a Contributor</p>
                     <p className="onHover">Topcis</p>
                     <p className="onHover">Collections</p>
                     <p className="onHover">Trends</p>
                     <p className="onHover">Unsplash Awards</p>
                     <p className="onHover">Stats</p>
-                    <Box sx={{display:"flex"}}>
-                      <a href="www.google.com" className="onHover"><TwitterIcon fontSize="small"/></a>
-                      <a href="www.google.com" className="onHover"><FacebookIcon fontSize="small"/></a>
-                      <a href="www.google.com" className="onHover"><InstagramIcon fontSize="small"/></a>
-                      </Box>
+                    <Box sx={{ display: "flex" }}>
+                      <a href="www.google.com" className="onHover">
+                        <TwitterIcon fontSize="small" />
+                      </a>
+                      <a href="www.google.com" className="onHover">
+                        <FacebookIcon fontSize="small" />
+                      </a>
+                      <a href="www.google.com" className="onHover">
+                        <InstagramIcon fontSize="small" />
+                      </a>
+                    </Box>
                   </Box>
                 </Box>
                 <hr />
-                <Box sx={{display:"flex", padding:"0px 10px 10px 30px"}}>
+                <Box sx={{ display: "flex", padding: "0px 10px 10px 30px" }}>
                   <p className="onHover">License</p>
                   <p className="onHover">Privacy Policy</p>
                   <p className="onHover">Terms</p>
                   <p className="onHover">Security</p>
                 </Box>
-          </Popover>
-          </Box>
+              </Popover>
+            </Box>
           </Toolbar>
-          </Box>
         </Box>
-    )
+      </Box>
+    );
 }

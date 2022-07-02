@@ -1,10 +1,10 @@
-import {HeadersSection} from "../Components/Advertise/HeadersSections"
+import {HeadersSection} from "../components/Advertise/HeadersSections"
 
-import { ImageCarousel } from "../Components/Advertise/ImageCarousel";
+import { ImageCarousel } from "../components/Advertise/ImageCarousel";
 import { Box } from "@mui/material";
-import { NativeAdSection } from "../Components/Advertise/NativeAdSection";
-import { Audiance } from "../Components/Advertise/Audiance";
-import { Footer } from "../Components/Advertise/Footer";
+import { NativeAdSection } from "../components/Advertise/NativeAdSection";
+import { Audiance } from "../components/Advertise/Audiance";
+import { Footer } from "../components/Advertise/Footer";
 
 export const Advertise = () => {
 
