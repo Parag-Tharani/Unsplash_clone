@@ -18,6 +18,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { isLogin } from "../Redux/action";
+import {useDropzone} from 'react-dropzone';
 
 export const Navbar1 = () => {
 
@@ -137,12 +138,39 @@ export const Navbar1 = () => {
       const handleClose2 = () => {
         setAnchorEl2(null);
       };
+
+
+
+      const {acceptedFiles, getRootProps, getInputProps} = useDropzone({noKeyboard: true});
+      const [anchorEl3, setAnchorEl3] = React.useState(null);
+      
+      const navifn = () => {
+        if(acceptedFiles.length !== 0){
+          navigate("/error")
+        }else{
+          console.log("no")
+        }
+      }
+
+      const open3 = Boolean(anchorEl3);
+      const id3 = open3 ? 'simple-popover' : undefined;
+
+      const handleClick3 = (event) => {
+        setAnchorEl3(event.currentTarget);
+      };
+
+      const handleClose3 = () => {
+        setAnchorEl3(null);
+      };
+
+
+      
       
 
     return (
         <Box sx={{display:"flex", padding:0.8, alignItems:"center", justifyContent:"center"}}>
 
-            <img alt="Logo" style={{position:"sticky", left:2,borderRadius:"100%"}} width={"55px"} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf31fI-8KqbQk8HKfgCdJTZ_ZpMe1bdtKArA&usqp=CAU" />
+            <img alt="Logo" style={{position:"sticky",width:"55px",height:"55px", left:2,borderRadius:"100%"}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf31fI-8KqbQk8HKfgCdJTZ_ZpMe1bdtKArA&usqp=CAU" />
 
             <Search>
             <SearchIconWrapper>
@@ -151,7 +179,29 @@ export const Navbar1 = () => {
             <StyledInputBase
               placeholder="Search free high-resolution photos"
             />
+            <Button onClick={handleClick3} aria-describedby={id3}>
               <ImageSearchIcon className="onHover" sx={{position:"relative", display:"flex", alignItems:"center", padding:1}}/>
+            </Button>
+            <Popover
+              className={id3}
+              open={open3}
+              anchorEl={anchorEl3}
+              onClose={handleClose3}
+              anchorReference="anchorPosition"
+              anchorPosition={{ top: 75, left: 280 }}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'right',
+              }}>
+                <Box sx={{width:"400px", height:"300px", padding:2, paddingBottom:12, borderRadius:4}}>
+                  <p>Visual Search</p>
+                <div style={{display:"flex",cursor:"pointer", flexDirection:"column",alignItems:"center", justifyContent:'center', border:"1px dotted black", height:"250px", padding:"20px"}} {...getRootProps({className: 'dropzone'})}>
+                  <ImageSearchIcon sx={{fontSize:"90px"}}/>
+                <input {...getInputProps()} onInput={navifn()} />
+                <h2 style={{color:"grey"}}>Drag and Drop your image here or browse file to search</h2>
+                </div>
+                </Box>
+              </Popover>            
           </Search>
 
           <Box className="scroll" sx={{display:"flex", alignItems:"center", justifyContent:"center", overflow:"scroll"}}>
@@ -167,7 +217,6 @@ export const Navbar1 = () => {
           }
           
         
-        
         <label htmlFor="contained-button-file">
         <Input disabled={logedIn?false:true} onChange={HandleSubmit} accept="image/*" id="contained-button-file" multiple type="file" />
         <Button onClick={logedIn?null:() => navigate("/signup")} className="onHover" variant="contained" component="span" size="small" color="inherit" sx={{color:"#757575",padding:1, border:1, borderColor:"#757575", backgroundColor:"white", fontSize:12, boxShadow:"none", marginLeft:"20px", marginRight:"10px"}}>
@@ -180,7 +229,7 @@ export const Navbar1 = () => {
         <Box sx={{display:"flex", alignItems:"center"}}>
         <NotificationsIcon fontSize="medium" className="onHover" sx={{marginLeft:1}}/>
         <Button onClick={handleClick2} aria-describedby={id2}>
-        <img className="onHover" alt="ProfilePic" style={{width:"50px", borderRadius:"100%"}} src={ payload.profilepic } />
+        <img className="onHover" alt="ProfilePic" style={{width:"50px",height:"50px", borderRadius:"100%"}} src={ payload.profilepic } />
         </Button>
         <Popover
               className={id2}
