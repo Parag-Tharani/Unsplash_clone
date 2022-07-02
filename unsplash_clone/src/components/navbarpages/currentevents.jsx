@@ -1,18 +1,3 @@
-// import React from "react";
-import "./App.css";
-import banner from "./banner.png";
-import heart from "./heart-black.svg";
-import squarespace from "./squarespace.svg";
-import React, { useState, useEffect } from "react";
-import { Loader } from "./components/Loader";
-import Search from "./components/search";
-import { Link } from "react-router-dom";
-import { Routes, Route } from "react-router-dom";
-import InfiniteScroll from "react-infinite-scroll-component";
-import axios from "axios";
-import search from "./components/search";
-import styled from "styled-components";
-import { createGlobalStyle } from "styled-components";
 var index = 1;
 function App() {
   const [images, setImage] = useState([]);
@@ -24,12 +9,7 @@ function App() {
   // const [index, setindex] = React.useState([1]);
 
   useEffect(() => {
-    if (images.length != 0) {
-      setImage([]);
-    }
-    
-    setimage2([]);
-    setimage3([]);
+    setImage([]);
     FetchImages();
     // alert("shown")
   }, [query]);
@@ -44,7 +24,7 @@ function App() {
       )
       .then((res) => {
         console.log(res.data);
-        setImage([...images, ...res.data.results]);
+        setImage([...res.data.results]);
       });
     axios
       .get(
@@ -54,7 +34,7 @@ function App() {
       )
       .then((res) => {
         console.log(res.data);
-        setimage2([...images2, ...res.data.results]);
+        setimage2([...res.data.results]);
       });
     axios
       .get(
@@ -64,7 +44,7 @@ function App() {
       )
       .then((res) => {
         console.log(res.data);
-        setimage3([...images3, ...res.data.results]);
+        setimage3([...res.data.results]);
       });
     index += 3;
   };
@@ -77,8 +57,8 @@ function App() {
       // background-color: grey;
     }
   `;
-   function handleKeyDown(e) {
-    if (e.key === 'Enter') {
+  function handleKeyDown(e) {
+    if (e.key === "Enter") {
       console.log(e.target.value);
       setquery([`${e.target.value}`]);
       handlesearchleave();
@@ -492,78 +472,3 @@ function App() {
 }
 
 export default App;
-
-{
-  /* // import { useState } from "react";
-
-// import { Container, Grid,  Item, Button } from "semantic-ui-react";
-// import "./App.css";
-
-// function App() { */
-}
-//   const [origImage, setOrigImage] = useState("");
-//   const [origImageFile, setOrigImageFile] = useState("");
-//   const [fileName, setFileName] = useState("");
-
-//   const handle = (e) => {
-
-//     const imageFile = e.target.files[0];
-//     setOrigImage(imageFile);
-//     setOrigImageFile(URL.createObjectURL(imageFile));
-//     setFileName(imageFile.name);
-//   };
-
-//   return (
-//     <div className="App">
-//       <Container>
-//         <Grid>
-//           <Grid.Column width={6}>
-//             <Item>
-//             </Item>
-//           </Grid.Column>
-//           <Grid.Column width={4}>
-//             <input
-//               type="file"
-//               accept="image/*"
-//               className="mt-2 btn btn-dark w-75"
-//               onChange={(e) => handle(e)}
-//             />
-//               <Button>
-//               <a href={origImage} download={fileName}>
-//                   {" "}
-//                   Download Image
-//                 </a>
-//               </Button>
-
-//           </Grid.Column>
-//         </Grid>
-//       </Container>
-//     </div>
-//   );
-
-// }
-
-// export default App;
-
-// function App() {
-
-//   return (
-//     <div>
-//       <Heading />
-//       <InfiniteScroll
-//         dataLength={images.length}
-//         next={fetchImages}
-//         hasMore={true}
-//         loader={<Loader />}
-//       >
-//         <WrapperImages>
-//           {images.map(image => (
-//             <UnsplashImage url={image.urls.thumb} key={image.id} />
-//           ))}
-//         </WrapperImages>
-//       </InfiniteScroll>
-//     </div>
-//   );
-// }
-
-// export default App;

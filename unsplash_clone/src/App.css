@@ -14,7 +14,7 @@ body {
 } */
 .App {
   display: flex;
-
+  padding-top: 20px;
   gap: 24px;
 }
 .card {
@@ -39,7 +39,7 @@ body {
   position: absolute;
   color: #ffffff;
   align-items: center;
-  top: 20%;
+  top: 14%;
   left: 22%;
 }
 .top_data p {
@@ -157,6 +157,7 @@ body {
   
 }
 .trending_searches p, .trending_topics p, .trending_collections p {
+  cursor: pointer;
   border: 1px solid gray;
   padding: 8px 10px;
   font-size: 13px;

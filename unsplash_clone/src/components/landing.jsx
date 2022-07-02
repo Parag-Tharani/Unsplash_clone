@@ -20,19 +20,11 @@ function App() {
 
   const [images2, setimage2] = React.useState([]);
   const [images3, setimage3] = React.useState([]);
-  const [query, setquery] = React.useState(["office"]);
   // const [index, setindex] = React.useState([1]);
 
   useEffect(() => {
-    if (images.length != 0) {
-      setImage([]);
-    }
-    
-    setimage2([]);
-    setimage3([]);
     FetchImages();
-    // alert("shown")
-  }, [query]);
+  }, []);
 
   const FetchImages = (count = 10) => {
     const apiRoot = "https://api.unsplash.com";
@@ -40,7 +32,7 @@ function App() {
     console.log(index);
     axios
       .get(
-        `https://api.unsplash.com/search/photos?page=${index}&per_page=10&query=${query}&client_id=rCgXNxiP3rG7_bJ_k4zxiVa0PISE5bJlC7JAt0uJRts&count=${count}`
+        `https://api.unsplash.com/search/photos?page=${index}&per_page=10&query=office&client_id=rCgXNxiP3rG7_bJ_k4zxiVa0PISE5bJlC7JAt0uJRts&count=${count}`
       )
       .then((res) => {
         console.log(res.data);
@@ -50,7 +42,7 @@ function App() {
       .get(
         `https://api.unsplash.com/search/photos?page=${
           index + 1
-        }&per_page=10&query=${query}&client_id=rCgXNxiP3rG7_bJ_k4zxiVa0PISE5bJlC7JAt0uJRts&count=${count}`
+        }&per_page=10&query=office&client_id=rCgXNxiP3rG7_bJ_k4zxiVa0PISE5bJlC7JAt0uJRts&count=${count}`
       )
       .then((res) => {
         console.log(res.data);
@@ -60,7 +52,7 @@ function App() {
       .get(
         `https://api.unsplash.com/search/photos?page=${
           index + 2
-        }&per_page=10&query=${query}&client_id=rCgXNxiP3rG7_bJ_k4zxiVa0PISE5bJlC7JAt0uJRts&count=${count}`
+        }&per_page=10&query=office&client_id=rCgXNxiP3rG7_bJ_k4zxiVa0PISE5bJlC7JAt0uJRts&count=${count}`
       )
       .then((res) => {
         console.log(res.data);
@@ -71,19 +63,7 @@ function App() {
 
   const [ishovering, setishovering] = useState(false);
   const [searchhovering, setsearchhovering] = useState(false);
-  const Datashow = styled.div`
-    // : gry;
-    :hover {
-      // background-color: grey;
-    }
-  `;
-   function handleKeyDown(e) {
-    if (e.key === 'Enter') {
-      console.log(e.target.value);
-      setquery([`${e.target.value}`]);
-      handlesearchleave();
-    }
-  }
+
   function handlemouseenter(e) {
     console.log(e);
     setishovering(true);
@@ -114,7 +94,6 @@ function App() {
               type="text"
               placeholder="Search free high-resolution photos"
               onClick={handlesearchhovering}
-              onKeyDown={handleKeyDown}
             />
           </div>
           <div>
@@ -126,89 +105,18 @@ function App() {
                 <p>Trending Searches</p>
                 <div className="trending_searches">
                   {/* <Link to="/search"> wallpapers </Link> */}
-                  <p
-                    onClick={() => {
-                      setquery(["wallpapers"]);
-                      handlesearchleave();
-                    }}
-                  >
-                    wallpapers
-                  </p>
-                  <p
-                    onClick={() => {
-                      setquery(["travel"]);
-                      handlesearchleave();
-                    }}
-                  >
-                    travel
-                  </p>
-                  <p
-                    onClick={() => {
-                      setquery(["home"]);
-                      handlesearchleave();
-                    }}
-                  >
-                    home
-                  </p>
-                  <p
-                    onClick={() => {
-                      setquery(["stage lights"]);
-                      handlesearchleave();
-                    }}
-                  >
-                    stagelights
-                  </p>
-                  <p
-                    onClick={() => {
-                      setquery(["yoga"]);
-                      handlesearchleave();
-                    }}
-                  >
-                    yoga
-                  </p>
+                  <p>travel</p>
+                  <p>home</p>
+                  <p>stagelights</p>
+                  <p>yoga</p>
                 </div>
                 <p>Trending Topics</p>
                 <div className="trending_topics">
-                  <p
-                    onClick={() => {
-                      setquery(["Wallpapers"]);
-                      handlesearchleave();
-                    }}
-                  >
-                    Wallpapers
-                  </p>
-                  <p
-                    onClick={() => {
-                      setquery(["Arts & Culture"]);
-                      handlesearchleave();
-                    }}
-                  >
-                    Arts & Culture
-                  </p>
-                  <p
-                    onClick={() => {
-                      setquery(["3D Renders"]);
-                      handlesearchleave();
-                    }}
-                  >
-                    3D Renders
-                  </p>
-                  <p
-                    onClick={() => {
-                      setquery(["Architecture"]);
-                      handlesearchleave();
-                    }}
-                  >
-                    Architecture
-                  </p>
-                  <p
-                    onClick={() => {
-                      setquery(["Textures & Patterns"]);
-                      handlesearchleave();
-                    }}
-                  >
-                    Textures & Patterns
-                  </p>
+                  <p>Wallpapers</p>
+                  <p>Arts & Culture</p>
+                  <p>3D Renders</p>
+                  <p>Architecture</p>
+                  <p>Textures & Patterns</p>
                 </div>
                 {/* <p>Trending Collections</p>
               <div className="trending_collections">
@@ -242,7 +150,7 @@ function App() {
       </div>
       <div className="main">
         <div className="App">
-          <Datashow className="image_box">
+          <div className="image_box">
             <InfiniteScroll
               dataLength={images.length}
               next={FetchImages}
@@ -321,7 +229,7 @@ function App() {
                 ))}
               </div>
             </InfiniteScroll>
-          </Datashow>
+          </div>
           <div className="image_box">
             <InfiniteScroll
               dataLength={images.length}
