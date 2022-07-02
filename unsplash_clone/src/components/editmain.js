@@ -72,9 +72,9 @@ onChange={(e)=>{
            </Box>
 
 <Box>
-<Box backgroundColor={'green.400'} alignSelf={'end'}>
+{/* <Box backgroundColor={'green.400'} alignSelf={'end'}>
     <Text> Acoount confirmed</Text>
-</Box>
+</Box> */}
 {/* input */}
 <HStack >
 <Box  ml='5%'>

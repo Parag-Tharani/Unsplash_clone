@@ -13,7 +13,7 @@ export default function Hiring(){
 <Heading>Interested in freelance photography work?
 </Heading>
 
-<Box  backgroundColor={'blue.100'} p='1.5%' borderRadius={'5px'} >
+<Box  backgroundColor={'blue.100'} p='1.5%' borderRadius={'10px'} >
     <HStack>
         <Checkbox></Checkbox>
         <Text>

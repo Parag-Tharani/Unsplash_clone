@@ -17,7 +17,7 @@ import Pass from './components/password';
 import Connect from './components/connect';
 import MainEdit from './components/editmain';
 
-function App() {
+function Editprofile() {
   
   return (
     <BrowserRouter> 
@@ -38,13 +38,13 @@ function App() {
 <Route path='/edit/email' element={<Edit_email  />} />
 <Route path='/edit/close' element={<Close_ac />} />  
 <Route path='/edit/pass' element={<Pass />} />  
-      </Route>
-<Route path='/connect' element={<Connect />} />  
+<Route path='/edit/connect' element={<Connect />} />  
 
+      </Route>
       </Routes>
 </BrowserRouter>
 
   );
 }
 
-export default App;
+export default Editprofile;
