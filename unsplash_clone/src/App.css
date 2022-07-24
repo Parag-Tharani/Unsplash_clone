@@ -165,6 +165,7 @@ body {
 }
 .kelbm {
       height: 100%;
+
 }
 .ppjpj {
       display: flex;
@@ -175,6 +176,8 @@ body {
     position: absolute;
     right: 0;
     top: 0;
+    background-image: linear-gradient(180deg, #bcbcc3, transparent);
+    background-image: linear-gradient(0deg, #6a6a6b, transparent );
 }
 .top3 {
   display: grid;
@@ -305,6 +308,7 @@ body {
   height: 24px;
   width: 14px;
 }
+
 .hidden {
   display: none;
   

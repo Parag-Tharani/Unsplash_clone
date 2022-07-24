@@ -16,7 +16,7 @@ import { createGlobalStyle } from "styled-components";
 var index = 1;
 function App() {
   const [images, setImage] = useState([]);
-  const [search, setsearch] = useState([]);
+  // const [search, setsearch] = useState([]);
 
   const [images2, setimage2] = React.useState([]);
   const [images3, setimage3] = React.useState([]);
@@ -24,23 +24,21 @@ function App() {
   // const [index, setindex] = React.useState([1]);
 
   useEffect(() => {
-    if (images.length != 0) {
-      setImage([]);
-    }
-    
-    setimage2([]);
-    setimage3([]);
-    FetchImages();
+    // if (images.length != 0) {
+      
+    // }
+   FetchImages()
     // alert("shown")
-  }, [query]);
+  }, [setquery]);
 
   const FetchImages = (count = 10) => {
-    const apiRoot = "https://api.unsplash.com";
-    const accessKey = process.env.REACT_APP_ACCESSKEY;
-    console.log(index);
+    
+    // const apiRoot = "https://api.unsplash.com";
+    // const accessKey = process.env.REACT_APP_ACCESSKEY;
+    // console.log(index);
     axios
       .get(
-        `https://api.unsplash.com/search/photos?page=${index}&per_page=10&query=${query}&client_id=rCgXNxiP3rG7_bJ_k4zxiVa0PISE5bJlC7JAt0uJRts&count=${count}`
+        `https://api.unsplash.com/search/photos?page=${index}&per_page=10&query=${query}&client_id=d-LkQ147e_thL57BcZo3md05pDVFELieWfQ3GFKX6go&count=${count}`
       )
       .then((res) => {
         console.log(res.data);
@@ -50,7 +48,7 @@ function App() {
       .get(
         `https://api.unsplash.com/search/photos?page=${
           index + 1
-        }&per_page=10&query=${query}&client_id=rCgXNxiP3rG7_bJ_k4zxiVa0PISE5bJlC7JAt0uJRts&count=${count}`
+        }&per_page=10&query=${query}&client_id=d-LkQ147e_thL57BcZo3md05pDVFELieWfQ3GFKX6go&count=${count}`
       )
       .then((res) => {
         console.log(res.data);
@@ -60,7 +58,7 @@ function App() {
       .get(
         `https://api.unsplash.com/search/photos?page=${
           index + 2
-        }&per_page=10&query=${query}&client_id=rCgXNxiP3rG7_bJ_k4zxiVa0PISE5bJlC7JAt0uJRts&count=${count}`
+        }&per_page=10&query=${query}&client_id=d-LkQ147e_thL57BcZo3md05pDVFELieWfQ3GFKX6go&count=${count}`
       )
       .then((res) => {
         console.log(res.data);
@@ -69,7 +67,7 @@ function App() {
     index += 3;
   };
 
-  const [ishovering, setishovering] = useState(false);
+  const [ishovering, setishovering] = useState(-1);
   const [searchhovering, setsearchhovering] = useState(false);
   const Datashow = styled.div`
     // : gry;
@@ -81,23 +79,17 @@ function App() {
     if (e.key === 'Enter') {
       console.log(e.target.value);
       setquery([`${e.target.value}`]);
+       
       handlesearchleave();
     }
   }
-  function handlemouseenter(e) {
-    console.log(e);
-    setishovering(true);
-  }
-  function handlemouseleave(e) {
-    console.log(e);
-    setishovering(false);
-  }
+
   function handlesearchleave(e) {
-    console.log(e);
+    // console.log(e);
     setsearchhovering(false);
   }
   function handlesearchhovering(e) {
-    console.log(e);
+    // console.log(e);
     setsearchhovering(true);
   }
 
@@ -210,14 +202,6 @@ function App() {
                     Textures & Patterns
                   </p>
                 </div>
-                {/* <p>Trending Collections</p>
-              <div className="trending_collections">
-                <p>Light Tones</p>
-                <p>Medium frames in interior</p>
-                <p>Springs</p>
-                <p>MockUps</p>
-                <p>Flat Lay Lifestyle</p>
-              </div> */}
               </div>
             </div>
           </div>
@@ -241,28 +225,31 @@ function App() {
         </div>
       </div>
       <div className="main">
-        <div className="App">
-          <Datashow className="image_box">
-            <InfiniteScroll
-              dataLength={images.length}
-              next={FetchImages}
-              hasMore={true}
-              loader={<Loader />}
-            >
+        <InfiniteScroll
+          className="App"
+          dataLength={images.length}
+          next={FetchImages}
+          hasMore={true}
+          loader={<Loader />}
+        >
+          <div className="image_box">
+            <div>
               <div>
                 {images?.map((image) => (
-                  <div key={image.id} className="card">
+                  <div className="card">
                     <div
                       key={image.id}
                       className="image_main_div"
-                      onMouseEnter={handlemouseenter}
-                      onMouseLeave={handlemouseleave}
+                      onMouseEnter={() => setishovering(image.id)}
+                      onMouseLeave={() => setishovering(-1)}
                     >
                       <div className="imagehover">
                         <div className="top4">
                           <div className="kelbm">
                             <div
-                              className={`ppjpj ${ishovering ? "" : "hidden"} `}
+                              className={`ppjpj ${
+                                ishovering == image.id ? "backgr" : "hidden"
+                              } `}
                             >
                               <div className="top6">
                                 <div className="left_img">
@@ -320,29 +307,26 @@ function App() {
                   </div>
                 ))}
               </div>
-            </InfiniteScroll>
-          </Datashow>
+            </div>
+          </div>
           <div className="image_box">
-            <InfiniteScroll
-              dataLength={images.length}
-              next={FetchImages}
-              hasMore={true}
-              loader={<Loader />}
-            >
+            <div>
               <div>
                 {images2?.map((image) => (
-                  <div key={image.id} className="card">
+                  <div className="card">
                     <div
                       key={image.id}
                       className="image_main_div"
-                      onMouseEnter={handlemouseenter}
-                      onMouseLeave={handlemouseleave}
+                      onMouseEnter={() => setishovering(image.id)}
+                      onMouseLeave={() => setishovering(-1)}
                     >
                       <div className="imagehover">
                         <div className="top4">
                           <div className="kelbm">
                             <div
-                              className={`ppjpj ${ishovering ? "" : "hidden"} `}
+                              className={`ppjpj ${
+                                ishovering == image.id ? "" : "hidden"
+                              } `}
                             >
                               <div className="top6">
                                 <div className="left_img">
@@ -400,29 +384,26 @@ function App() {
                   </div>
                 ))}
               </div>
-            </InfiniteScroll>
+            </div>
           </div>
           <div className="image_box">
-            <InfiniteScroll
-              dataLength={images.length}
-              next={FetchImages}
-              hasMore={true}
-              loader={<Loader />}
-            >
+            <div>
               <div>
                 {images3?.map((image) => (
-                  <div key={image.id} className="card">
+                  <div className="card">
                     <div
                       key={image.id}
                       className="image_main_div"
-                      onMouseEnter={handlemouseenter}
-                      onMouseLeave={handlemouseleave}
+                      onMouseEnter={() => setishovering(image.id)}
+                      onMouseLeave={() => setishovering(-1)}
                     >
                       <div className="imagehover">
                         <div className="top4">
                           <div className="kelbm">
                             <div
-                              className={`ppjpj ${ishovering ? "" : "hidden"} `}
+                              className={`ppjpj ${
+                                ishovering == image.id ? "" : "hidden"
+                              } `}
                             >
                               <div className="top6">
                                 <div className="left_img">
@@ -480,9 +461,9 @@ function App() {
                   </div>
                 ))}
               </div>
-            </InfiniteScroll>
+            </div>
           </div>
-        </div>
+        </InfiniteScroll>
       </div>
       {/* <Routes>
         <Route path="/search" element={<Search />}></Route>
@@ -493,14 +474,7 @@ function App() {
 
 export default App;
 
-{
-  /* // import { useState } from "react";
 
-// import { Container, Grid,  Item, Button } from "semantic-ui-react";
-// import "./App.css";
-
-// function App() { */
-}
 //   const [origImage, setOrigImage] = useState("");
 //   const [origImageFile, setOrigImageFile] = useState("");
 //   const [fileName, setFileName] = useState("");
