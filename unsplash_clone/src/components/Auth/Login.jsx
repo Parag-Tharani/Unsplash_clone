@@ -24,16 +24,16 @@ export const LogIn = () => {
         .then((res) => res.json())
         .then((res) => res.forEach((items) => {
             if(items.email === email){
-                if(items.password === password){
+                if(items.password === password && password !== ""){
                     setBool(false)
                     localStorage.setItem("AuthToken", JSON.stringify(items.token))
                     dispatch(isLogin(true))
                     navigate("/")
                 }
-            }else{
-                setBool(true)
             }
-        }))
+        },
+        setBool(true)
+        ))
     }
 
     const onSuccess = (res) => {
@@ -44,10 +44,10 @@ export const LogIn = () => {
                 localStorage.setItem("AuthToken", JSON.stringify(items.token))
                 dispatch(isLogin(true))
                 navigate("/")
-            }else{
-                setBool(true)
             }
-        }))
+        },
+        setBool(true)
+        ))
     }
 
 
