@@ -15,6 +15,7 @@ import { store } from './components/Redux/store';
 //     </CssBaseline>
 //   </BrowserRouter>
 // );
+// import { ScrollerMotion } from 'scroller-motion';
 
 // import {render} from
 // const container = (document.getElementById('root'));
