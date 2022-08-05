@@ -1,3 +1,4 @@
+
 import './App.css';
 import { Navbar } from "../src/Components/Navbar/Navbar"
 import { Route, Routes } from 'react-router';
@@ -8,12 +9,15 @@ import { Error } from './Components/Navbar/Error'
 function App() {
   return (
     <div className="App">
+    <Blog />
       <Routes>
         <Route path='/' element={<Navbar/>}></Route>
         <Route path="/error" element={<Error />}></Route>
         <Route path='/login' element={<LogIn/>}></Route>
         <Route path='/signup' element={<SignUp/>}></Route>
+         <Route path='/blog' element={<Blog/>}></Route>
       </Routes>
+
     </div>
   );
 }
